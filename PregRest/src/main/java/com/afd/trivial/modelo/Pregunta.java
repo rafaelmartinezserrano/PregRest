@@ -3,8 +3,13 @@ package com.afd.trivial.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Pregunta {
 	
+	@Id
 	private int idPregunta;
 	private String enunciado;
 	private Categoria categoria;

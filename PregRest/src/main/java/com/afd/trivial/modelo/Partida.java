@@ -3,11 +3,23 @@ package com.afd.trivial.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
+@Entity
 public class Partida {
 
+	@Id
+	@GeneratedValue
 	private int idPartida;
+	@Column(name = "nombre")
 	private String nombreSala;
+	@Transient
 	private List<Pregunta> listaPreguntas;
+	@Transient
 	private List<Jugador> listaJugadores;
 	private int maxJugadores;
 	private boolean finalizada;

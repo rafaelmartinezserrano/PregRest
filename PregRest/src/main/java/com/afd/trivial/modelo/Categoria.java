@@ -1,7 +1,12 @@
 package com.afd.trivial.modelo;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Categoria {
 	
+	@Id
 	private int idCategoria;
 	private String nombre;
 	
