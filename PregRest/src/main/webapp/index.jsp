@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,16 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-ADS as AS as das dasda sdsadad asdasd
-nkjhiefkléf
-cbouqei
 
-
-jWHIPUOEFMÑAOPSD¡	QS
-jheip23uropkflkrpgf
-noieuri24pnkñtgb
-bniut43iop5klnk
-bnouithi35yjmnkn 
 
 
 </body>
