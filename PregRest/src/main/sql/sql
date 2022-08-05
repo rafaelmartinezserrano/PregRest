@@ -1,0 +1,97 @@
+show tables;
+
+SELECT *
+FROM PREGUNTA;
+
+INSERT INTO pregunta (idPregunta, enunciado, idCategoria)
+	VALUES (700, '¿Quién saltó a la fama en 2008 con el lanzamiento del single I Kissed a Girl?', 4); 
+
+INSERT INTO  pregunta (idPregunta, enunciado, idCategoria) 
+	VALUES (701, '¿Qué famoso músico estadounidense ya fallecido se le considera el mejor guitarrista de todos los tiempos, y eso que era zurdo y le forzaron de pequeño a tocar con la derecha?', 4)  ;
+		
+INSERT INTO  pregunta (idPregunta, enunciado, idCategoria)
+	VALUES (702, '¿Qué estrella del pop tocó 27 instrumentos diferentes en su álbum debut For You?', 4) ; 
+
+INSERT INTO  pregunta (idPregunta, enunciado, idCategoria)
+	VALUES (703, '¿Qué músico austriaco murió antes de terminar su importante obra Requiem?', 4);
+
+INSERT INTO  pregunta (idPregunta, enunciado, idCategoria)
+	VALUES (704, '¿Qué cantante ha tenido un Billboard ¿Número 1 en cada una de las últimas cuatro décadas?', 4);
+
+INSERT INTO  pregunta (idPregunta, enunciado, idCategoria)
+	VALUES (705, '¿Qué ícono del rock fue el fundador de la Sociedad para la Prevención de la Crueldad hacia los Hombres de Cabello Largo?', 4) ;
+
+INSERT INTO  pregunta (idPregunta, enunciado, idCategoria)
+	VALUES (706, '¿Quién fue la primera mujer en ser incluida en el Salón de la Fama del Rock and Roll?', 4) ;
+
+
+
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE ('Katy Perry', TRUE, 700);
+
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE ('Eric Clapton', FALSE, 700);
+
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE ('Rosalia', FALSE, 700);
+	
+	
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE ('Led Zeppelin', FALSE, 701);
+
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE ('Jimmy Hendrix', TRUE, 701);
+
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE (' Chavela Vargas', FALSE, 701);
+	
+	
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE ('Camarón', FALSE, 702);
+
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE ('Prince', TRUE, 702);
+
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE ('Édith Piaf', FALSE, 702);
+	
+	
+		
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE ('Redemption song', FALSE, 703);
+
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE ('Giacomo Puccini', FALSE, 703);
+
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE ('Wolfgang Amadeus Mozart', TRUE, 703);
+	
+	
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE ('Mariah Carey', TRUE, 704);
+
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE ('Farrokh Bulsara', FALSE, 704);
+
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE ('Brie Larso', FALSE, 704);
+	
+	
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE ('Led Zeppeling', FALSE, 705);
+
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE ('David Bowie', TRUE, 705);
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE ('Berry Gordy', FALSE, 705);
+	
+	
+	
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE ('Lance Bass', FALSE, 706);
+
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE (' Aretha Franklin', TRUE, 706);
+
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE ('Dolly Parton', FALSE, 706);
