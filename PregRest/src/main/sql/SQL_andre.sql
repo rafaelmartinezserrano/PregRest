@@ -1,4 +1,4 @@
---1--
+ --1--
 INSERT INTO Pregunta (idPregunta, enunciado, idCategoria) VALUES(500,'¿Quién inventó Google?',1);
 INSERT INTO Respuesta (texto, correcta, idPregunta) VALUES('Bill Gates', FALSE, 500);
 INSERT INTO Respuesta (texto, correcta, idPregunta) VALUES('Steve Jobs', FALSE, 500);
