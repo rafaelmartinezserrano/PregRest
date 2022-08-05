@@ -9,6 +9,9 @@ VALUES (103, "¿Qué deporte de los Juegos Olímpicos implica pliegues y picas?", 3
 INSERT INTO pregunta (idPregunta, enunciado, idCategoria)
 VALUES (104, " ¿Manny Pacquiao es un boxeador legendario de qué país?", 3);
 INSERT INTO pregunta (idPregunta, enunciado, idCategoria)
+
+
+
 VALUES (105, "¿Cuántos puntos vale un tiro libre en baloncesto?", 3);
 INSERT INTO pregunta (idPregunta, enunciado, idCategoria)
 VALUES (106, " ¿Qué parte de tu cuerpo no debe tocar el balón en el fútbol?", 3);
