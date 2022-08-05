@@ -4,6 +4,10 @@ import java.util.List;
 
 public interface Fachada {
 
+	//Método para la implementación del patrón Singleton, para obtener la instancia
+	//de la fachada
+	public Fachada getInstance();
+	
 	//Método que devolverá un jugador si existe el alias o null si no existe
 	public Jugador iniciarSesion(String alias);
 	
@@ -20,4 +24,6 @@ public interface Fachada {
 	//Método que devolverá verdadero o falso si un alias está disponible para registrarse
 	public boolean comprobarAlias(String alias);
 
+	//Método que devuelve la lista de jugadores
+	public List<Jugador> obtenerRanking();
 }
