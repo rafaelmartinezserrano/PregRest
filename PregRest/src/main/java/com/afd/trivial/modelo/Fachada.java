@@ -2,28 +2,35 @@ package com.afd.trivial.modelo;
 
 import java.util.List;
 
-public interface Fachada {
+public abstract class Fachada {
 
+	private static Fachada instance;
+	
 	//Método para la implementación del patrón Singleton, para obtener la instancia
 	//de la fachada
-	public Fachada getInstance();
+	public static Fachada getInstance() {
+		if (instance == null) {
+			instance = new FachadaImpl();
+		}
+		return instance;
+	}
 	
 	//Método que devolverá un jugador si existe el alias o null si no existe
-	public Jugador iniciarSesion(String alias);
+	public abstract Jugador iniciarSesion(String alias);
 	
 	//Método que registrará un jugador en la aplicación. Devolverá el jugador si
 	//se ha podido registrar o null en caso contrario
-	public Jugador registrarJugador(String alias);
+	public abstract Jugador registrarJugador(String alias);
 	
 	//Método que buscará las partidas disponibles
-	public List<Partida> buscarPartidas();
+	public abstract List<Partida> buscarPartidas();
 	
 	//Método que creará una partida a partir de los datos recibidos
-	public Partida crearPartida(String nombre, int maxJugadores, int numPreguntasPorCategoria, int[]categorias);
+	public abstract Partida crearPartida(String nombre, int maxJugadores, int numPreguntasPorCategoria, int[]categorias);
 
 	//Método que devolverá verdadero o falso si un alias está disponible para registrarse
-	public boolean comprobarAlias(String alias);
+	public abstract boolean comprobarAlias(String alias);
 
 	//Método que devuelve la lista de jugadores
-	public List<Jugador> obtenerRanking();
+	public abstract List<Jugador> obtenerRanking();
 }
