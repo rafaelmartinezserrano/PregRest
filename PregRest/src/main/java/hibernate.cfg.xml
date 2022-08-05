@@ -6,7 +6,7 @@
 	<session-factory>
 		<!--Database connection settings -->
 		<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost/librosrest</property>
+		<property name="hibernate.connection.url">jdbc:mysql://10.6.10.108:3306/pregresp</property>
 		<property name="hibernate.connection.username">root</property>
 		<!--  <property name="hibernate.connection.password">admin</property>  -->
 
@@ -23,7 +23,14 @@
 		<property name="hibernate.use_sql_comments">true</property>
 
 		<!-- <mapping resource="empleado.hbm.xml"/> -->
-		<mapping class="com.afd.service.model.Libro"/>
+		<mapping class="com.afd.trivial.modelo.Jugador"/>
+		<mapping class="com.afd.trivial.modelo.Partida"/>
+		<mapping class="com.afd.trivial.modelo.Pregunta"/>
+		<mapping class="com.afd.trivial.modelo.Respuesta"/>
+		<mapping class="com.afd.trivial.modelo.Categoria"/>
+		
+		
+		
 	</session-factory>
 
 </hibernate-configuration>
