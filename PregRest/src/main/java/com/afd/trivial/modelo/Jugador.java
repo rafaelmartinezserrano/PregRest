@@ -1,9 +1,20 @@
 package com.afd.trivial.modelo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
+@Entity
 public class Jugador {
-	
+	@Id
+	@GeneratedValue
 	private int idJugador;
+	@Column(name = "alias")
 	private String nombre;
+	//no es persistente
+	@Transient
 	private int puntuacion;
 	private int puntuacionTotal;
 	
