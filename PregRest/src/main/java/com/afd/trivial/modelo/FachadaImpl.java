@@ -10,24 +10,17 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-<<<<<<< HEAD
-=======
 import org.hibernate.cfg.Configuration;
-
->>>>>>> branch 'master' of https://github.com/sonsonaguer/PregRest.git
 
 public class FachadaImpl extends Fachada {
 	
 	private SessionFactory factoria;
 
-	
 	public FachadaImpl() {
 		Configuration configuracion = new Configuration();
 		configuracion.configure();
 		this.factoria = configuracion.buildSessionFactory();
 	}
-
-	private SessionFactory factoria;
 	
 	@Override
 	public Jugador iniciarSesion(String alias) {
