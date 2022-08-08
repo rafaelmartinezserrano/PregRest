@@ -28,6 +28,8 @@ public class Respuesta {
 		this.correcta = correcta;
 	}
 	
+	public Respuesta(){}
+	
 	public Pregunta getPregunta() {
 		return pregunta;
 	}

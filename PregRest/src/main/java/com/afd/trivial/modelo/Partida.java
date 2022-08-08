@@ -55,6 +55,8 @@ public class Partida {
 		this.finalizada = finalizada;
 	}
 
+	public Partida(){}
+	
 	public int getIdPartida() {
 		return idPartida;
 	}

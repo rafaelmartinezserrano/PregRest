@@ -14,6 +14,8 @@ public class Categoria {
 		this.idCategoria = idCategoria;
 		this.nombre = nombre;
 	}
+	
+	public Categoria(){}
 
 	public int getIdCategoria() {
 		return idCategoria;
