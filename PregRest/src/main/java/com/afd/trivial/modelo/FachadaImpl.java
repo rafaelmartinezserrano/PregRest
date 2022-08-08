@@ -69,10 +69,23 @@ public class FachadaImpl extends Fachada {
 
 	@Override
 	public List<Jugador> obtenerRanking() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Jugador> resultado = new ArrayList<Jugador>();
+		Session sesion = this.factoria.openSession();
+		Transaction transaccion = sesion.beginTransaction();
+		try {
+			TypedQuery<Jugador> consulta = sesion.createQuery("from jugador order by puntuacionTotal", Jugador.class);
+			resultado = consulta.getResultList();
+			transaccion.commit();
+		} catch (HibernateException ex) {
+			ex.printStackTrace();
+			transaccion.rollback();
+		} finally {
+			sesion.close();
+		}
+		
+		return resultado;
 	}
-
+	
 	@Override
 	public List<Categoria> obtenerCategoria() {
 		List<Categoria> resultado = new ArrayList<Categoria>();
