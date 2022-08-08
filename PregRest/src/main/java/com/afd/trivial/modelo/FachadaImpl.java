@@ -3,11 +3,12 @@ package com.afd.trivial.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.TypedQuery;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-
 import org.hibernate.cfg.Configuration;
 
 
@@ -24,8 +25,25 @@ public class FachadaImpl extends Fachada {
 
 	@Override
 	public Jugador iniciarSesion(String alias) {
-		// TODO Auto-generated method stub
-		return null;
+		Session sesion = this.factoria.openSession();
+		Transaction transaccion = sesion.beginTransaction();
+		Jugador jugador= null;
+		try {
+			TypedQuery<Jugador>consulta=sesion.createQuery("from Jugador where alias=:jugador", Jugador.class);
+			consulta.setParameter("jugador",alias);
+			jugador=consulta.getSingleResult();
+ 			transaccion.commit();
+ 			
+		}catch (HibernateException ex) {
+			ex.printStackTrace();
+			transaccion.rollback();
+			sesion.close();
+			return null;
+		}finally {
+			sesion.close();
+		}
+		return jugador;
+		
 	}
 
 	@Override
