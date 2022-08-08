@@ -25,6 +25,8 @@ public class Jugador {
 		this.puntuacion = puntuacion;
 		this.puntuacionTotal = puntuacionTotal;
 	}
+	
+	public Jugador(){}
 
 	public int getIdJugador() {
 		return idJugador;

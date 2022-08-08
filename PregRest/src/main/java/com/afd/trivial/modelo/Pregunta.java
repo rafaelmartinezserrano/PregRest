@@ -30,6 +30,8 @@ public class Pregunta {
 		this.listaRespuesta = listaRespuesta;
 	}
 	
+	public Pregunta() {}
+	
 	public Pregunta(int idPregunta, String enunciado, Categoria categoria) {
 		this.idPregunta = idPregunta;
 		this.enunciado = enunciado;
