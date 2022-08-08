@@ -10,8 +10,11 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+<<<<<<< HEAD
+=======
 import org.hibernate.cfg.Configuration;
 
+>>>>>>> branch 'master' of https://github.com/sonsonaguer/PregRest.git
 
 public class FachadaImpl extends Fachada {
 	
@@ -24,6 +27,8 @@ public class FachadaImpl extends Fachada {
 		this.factoria = configuracion.buildSessionFactory();
 	}
 
+	private SessionFactory factoria;
+	
 	@Override
 	public Jugador iniciarSesion(String alias) {
 		Session sesion = this.factoria.openSession();
@@ -68,9 +73,22 @@ public class FachadaImpl extends Fachada {
 
 	@Override
 	public List<Partida> buscarPartidas() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+			List<Partida> resultado = new ArrayList<Partida>();
+			Session sesion= this.factoria.openSession();
+			Transaction transaccion = sesion.beginTransaction();
+			try {
+				TypedQuery<Partida> consulta = sesion.createQuery("from Partida", Partida.class);
+				resultado = consulta.getResultList();
+				transaccion.commit();
+			} catch (HibernateException ex) {
+				ex.printStackTrace();
+				transaccion.rollback();
+				sesion.close(); 
+			} finally {
+				sesion.close();
+			}
+			return resultado;
+		}
 
 	@Override
 	public Partida crearPartida(String nombre, int maxJugadores, int numPreguntasPorCategoria, int[] categorias) {
