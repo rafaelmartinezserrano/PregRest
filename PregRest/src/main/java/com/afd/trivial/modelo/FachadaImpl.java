@@ -1,6 +1,7 @@
 package com.afd.trivial.modelo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
@@ -73,10 +74,28 @@ public class FachadaImpl extends Fachada {
 
 	@Override
 	public Partida crearPartida(String nombre, int maxJugadores, int numPreguntasPorCategoria, int[] categorias) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+				Session sesion = this.factoria.openSession();
+				Transaction transaccion = sesion.beginTransaction();
+				try {
+					List<Pregunta> preguntas = new ArrayList<Pregunta>();
+					for (int i = 0; i < categorias.length; i++) {
+						TypedQuery<Pregunta> consulta = sesion.createQuery("from Pregunta where idCategoria = :categoria", Pregunta.class);
+						List<Pregunta> lista = consulta.getResultList();
+						Collections.shuffle(lista);
+						preguntas.addAll(lista.subList(0, numPreguntasPorCategoria));
+					}
+					Partida partida = new Partida(0, nombre, preguntas, null, maxJugadores, false);
+					sesion.save(partida);
+					transaccion.commit();
+					return partida;
+				} catch (HibernateException ex) {
+					ex.printStackTrace();
+					transaccion.rollback();
+					return null;
+				} finally {
+					sesion.close();
+				}
+		}
 	@Override
 	public boolean comprobarAlias(String alias) {
 		// TODO Auto-generated method stub
