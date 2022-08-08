@@ -72,7 +72,7 @@ public class FachadaImpl extends Fachada {
 		}finally {
 			session.close();
 		}
-		return null;
+		return resultado;
 	}
 	
 	
