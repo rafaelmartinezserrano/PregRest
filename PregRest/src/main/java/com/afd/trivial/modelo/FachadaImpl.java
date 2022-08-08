@@ -9,21 +9,65 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+<<<<<<< HEAD
+=======
+import org.hibernate.cfg.Configuration;
+
+>>>>>>> branch 'master' of https://github.com/sonsonaguer/PregRest.git
 
 public class FachadaImpl extends Fachada {
+	
+	private SessionFactory factoria;
+
+	
+	public FachadaImpl() {
+		Configuration configuracion = new Configuration();
+		configuracion.configure();
+		this.factoria = configuracion.buildSessionFactory();
+	}
 
 	private SessionFactory factoria;
 	
 	@Override
 	public Jugador iniciarSesion(String alias) {
-		// TODO Auto-generated method stub
-		return null;
+		Session sesion = this.factoria.openSession();
+		Transaction transaccion = sesion.beginTransaction();
+		Jugador jugador= null;
+		try {
+			TypedQuery<Jugador>consulta=sesion.createQuery("from Jugador where alias=:jugador", Jugador.class);
+			consulta.setParameter("jugador",alias);
+			jugador=consulta.getSingleResult();
+ 			transaccion.commit();
+ 			
+		}catch (HibernateException ex) {
+			ex.printStackTrace();
+			transaccion.rollback();
+			sesion.close();
+			return null;
+		}finally {
+			sesion.close();
+		}
+		return jugador;
+		
 	}
 
 	@Override
 	public Jugador registrarJugador(String alias) {
-		// TODO Auto-generated method stub
-		return null;
+		Session sesion = this.factoria.openSession();
+		Jugador jugador = new Jugador(0, alias, 0, 0);
+		Transaction transaccion = sesion.beginTransaction();
+		try {
+			int id = (Integer)sesion.save(jugador);
+			transaccion.commit();
+			jugador.setIdJugador(id);
+		}catch(HibernateException ex){
+			ex.printStackTrace();
+			transaccion.rollback();
+			jugador = null;
+		}finally {
+			sesion.close();	
+		}
+		return jugador;
 	}
 
 	@Override
@@ -59,10 +103,40 @@ public class FachadaImpl extends Fachada {
 
 	@Override
 	public List<Jugador> obtenerRanking() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Jugador> resultado = new ArrayList<Jugador>();
+		Session sesion = this.factoria.openSession();
+		Transaction transaccion = sesion.beginTransaction();
+		try {
+			TypedQuery<Jugador> consulta = sesion.createQuery("from jugador order by puntuacionTotal", Jugador.class);
+			resultado = consulta.getResultList();
+			transaccion.commit();
+		} catch (HibernateException ex) {
+			ex.printStackTrace();
+			transaccion.rollback();
+		} finally {
+			sesion.close();
+		}
+		
+		return resultado;
 	}
-
+	
+	@Override
+	public List<Categoria> obtenerCategoria() {
+		List<Categoria> resultado = new ArrayList<Categoria>();
+		Session session = this.factoria.openSession();
+		Transaction transaccion = session.beginTransaction();
+		try {
+			TypedQuery<Categoria> consulta = session.createQuery("from Categoria", Categoria.class);
+			resultado = consulta.getResultList();
+			transaccion.commit();
+		}catch(HibernateException ex){
+			ex.printStackTrace();
+			transaccion.rollback();
+		}finally {
+			session.close();
+		}
+		return resultado;
+	}
 	
 	
 }

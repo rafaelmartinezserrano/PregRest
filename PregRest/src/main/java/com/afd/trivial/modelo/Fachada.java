@@ -41,4 +41,7 @@ public abstract class Fachada {
 
 	//Método que devuelve la lista de jugadores
 	public abstract List<Jugador> obtenerRanking();
+	
+	//Método que devuelve la lista de categorias
+	public abstract List<Categoria> obtenerCategoria();
 }
