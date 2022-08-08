@@ -7,10 +7,13 @@ import javax.persistence.TypedQuery;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 public class FachadaImpl extends Fachada {
 
+	private SessionFactory factoria;
+	
 	@Override
 	public Jugador iniciarSesion(String alias) {
 		// TODO Auto-generated method stub
