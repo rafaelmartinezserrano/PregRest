@@ -1,5 +1,6 @@
 package com.afd.trivial.modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.HibernateException;
@@ -7,9 +8,19 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import org.hibernate.cfg.Configuration;
+
+
 public class FachadaImpl extends Fachada {
 	
 	private SessionFactory factoria;
+
+	
+	public FachadaImpl() {
+		Configuration configuracion = new Configuration();
+		configuracion.configure();
+		this.factoria = configuracion.buildSessionFactory();
+	}
 
 	@Override
 	public Jugador iniciarSesion(String alias) {
@@ -60,6 +71,23 @@ public class FachadaImpl extends Fachada {
 		return null;
 	}
 
+	@Override
+	public List<Categoria> obtenerCategoria() {
+		List<Categoria> resultado = new ArrayList<Categoria>();
+		Session session = this.factoria.openSession();
+		Transaction transaccion = session.beginTransaction();
+		try {
+			TypedQuery<Categoria> consulta = session.createQuery("from Categoria", Categoria.class);
+			resultado = consulta.getResultList();
+			transaccion.commit();
+		}catch(HibernateException ex){
+			ex.printStackTrace();
+			transaccion.rollback();
+		}finally {
+			session.close();
+		}
+		return resultado;
+	}
 	
 	
 }

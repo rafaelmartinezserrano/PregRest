@@ -6,20 +6,32 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Transient;
 
 @Entity
 public class Partida {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idPartida;
 	@Column(name = "nombre")
 	private String nombreSala;
-	@Transient
+	@ManyToMany
+	@JoinTable(name = "preguntasPartida",
+	joinColumns = { @JoinColumn(name = "idPartida")},
+	inverseJoinColumns = {@JoinColumn(name ="idPregunta")}
+	)
 	private List<Pregunta> listaPreguntas;
-	@Transient
+	@ManyToMany
+	@JoinTable(name = "jugadoresPartida",
+	joinColumns = { @JoinColumn(name = "idPartida")},
+	inverseJoinColumns = {@JoinColumn(name ="idJugador")}
+	)
 	private List<Jugador> listaJugadores;
 	private int maxJugadores;
 	private boolean finalizada;
@@ -43,6 +55,8 @@ public class Partida {
 		this.finalizada = finalizada;
 	}
 
+	public Partida(){}
+	
 	public int getIdPartida() {
 		return idPartida;
 	}
