@@ -3,13 +3,14 @@ package com.afd.trivial.modelo;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
 @Entity
 public class Jugador {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idJugador;
 	@Column(name = "alias")
 	private String nombre;
