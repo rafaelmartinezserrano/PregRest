@@ -116,8 +116,21 @@ public class FachadaImpl extends Fachada {
 		}
 	@Override
 	public boolean comprobarAlias(String alias) {
-		// TODO Auto-generated method stub
-		return false;
+		Session sesion = this.factoria.openSession();
+		Transaction transaccion = sesion.beginTransaction();
+		try {
+			TypedQuery<Jugador> consultaAlias = sesion.createQuery("from jugador where alias like :nombre", Jugador.class);
+			Jugador jugador = consultaAlias.getSingleResult();
+			transaccion.commit();
+		}catch (HibernateException ex) {
+			ex.printStackTrace();
+			transaccion.rollback();
+			sesion.close();
+			return false;
+		} finally {
+			sesion.close();
+		}
+		return true;
 	}
 
 	@Override
