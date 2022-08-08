@@ -2,7 +2,14 @@ package com.afd.trivial.modelo;
 
 import java.util.List;
 
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
 public class FachadaImpl extends Fachada {
+	
+	private SessionFactory factoria;
 
 	@Override
 	public Jugador iniciarSesion(String alias) {
@@ -12,8 +19,21 @@ public class FachadaImpl extends Fachada {
 
 	@Override
 	public Jugador registrarJugador(String alias) {
-		// TODO Auto-generated method stub
-		return null;
+		Session sesion = this.factoria.openSession();
+		Jugador jugador = new Jugador(0, alias, 0, 0);
+		Transaction transaccion = sesion.beginTransaction();
+		try {
+			int id = (Integer)sesion.save(jugador);
+			transaccion.commit();
+			jugador.setIdJugador(id);
+		}catch(HibernateException ex){
+			ex.printStackTrace();
+			transaccion.rollback();
+			jugador = null;
+		}finally {
+			sesion.close();	
+		}
+		return jugador;
 	}
 
 	@Override
