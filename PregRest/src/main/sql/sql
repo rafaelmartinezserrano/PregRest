@@ -6,6 +6,7 @@ FROM PREGUNTA;
 INSERT INTO pregunta (idPregunta, enunciado, idCategoria)
 	VALUES (700, '¿Quién saltó a la fama en 2008 con el lanzamiento del single I Kissed a Girl?', 4); 
 
+	SELECT 
 INSERT INTO  pregunta (idPregunta, enunciado, idCategoria) 
 	VALUES (701, '¿Qué famoso músico estadounidense ya fallecido se le considera el mejor guitarrista de todos los tiempos, y eso que era zurdo y le forzaron de pequeño a tocar con la derecha?', 4)  ;
 		
@@ -16,7 +17,7 @@ INSERT INTO  pregunta (idPregunta, enunciado, idCategoria)
 	VALUES (703, '¿Qué músico austriaco murió antes de terminar su importante obra Requiem?', 4);
 
 INSERT INTO  pregunta (idPregunta, enunciado, idCategoria)
-	VALUES (704, '¿Qué cantante ha tenido un Billboard ¿Número 1 en cada una de las últimas cuatro décadas?', 4);
+	VALUES (704, '¿Qué cantante ha tenido un Billboard número 1 en cada una de las últimas cuatro décadas?', 4);
 
 INSERT INTO  pregunta (idPregunta, enunciado, idCategoria)
 	VALUES (705, '¿Qué ícono del rock fue el fundador de la Sociedad para la Prevención de la Crueldad hacia los Hombres de Cabello Largo?', 4) ;
@@ -24,7 +25,19 @@ INSERT INTO  pregunta (idPregunta, enunciado, idCategoria)
 INSERT INTO  pregunta (idPregunta, enunciado, idCategoria)
 	VALUES (706, '¿Quién fue la primera mujer en ser incluida en el Salón de la Fama del Rock and Roll?', 4) ;
 
+INSERT INTO  pregunta (idPregunta, enunciado, idCategoria)
+	VALUES (707, '¿Qué icono de la música francesa cantó como nadie "La vie en Rose", por más versiones que se hayan hecho después?', 4) ;
 
+INSERT INTO  pregunta (idPregunta, enunciado, idCategoria)
+	VALUES (708, '¿Cuál es la única banda de rock de la historia en la que cada miembro ha compuesto una canción que ha llegado a ser número uno como single?', 4) ;
+
+INSERT INTO  pregunta (idPregunta, enunciado, idCategoria)
+	VALUES (709, '¿Qué compositor creó la bella "Madama Butterfly"?', 4) ;
+
+INSERT INTO  pregunta (idPregunta, enunciado, idCategoria)
+	VALUES (710, '¿Qué canción se incluye siempre entre las canciones más bellas en español de todos los tiempos?', 4) ;
+
+	
 
 INSERT INTO respuesta (texto, correcta, idPregunta)
 	VALUE ('Katy Perry', TRUE, 700);
@@ -95,3 +108,44 @@ INSERT INTO respuesta (texto, correcta, idPregunta)
 
 INSERT INTO respuesta (texto, correcta, idPregunta)
 	VALUE ('Dolly Parton', FALSE, 706);
+	
+		
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE ('Santiago Auserón.', FALSE, 707);
+
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE (' Ariana Grande', FALSE, 707);
+
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE ('Édith Piaf', TRUE, 707);
+	
+
+	
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE ('Post Malone', FALSE, 708);
+
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE (' Queen', TRUE, 708);
+
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE ('Andrea Bocelli.', FALSE, 708);
+	
+	
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE (' Calvin Harris', FALSE, 709);
+
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE (' Queen', TRUE, 709);
+
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE ('Selena Gómez', FALSE, 709);
+	
+	
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE (' Khalid, Marshmello', FALSE, 710);
+
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE (' cAMARÓN', FALSE, 710);
+
+INSERT INTO respuesta (texto, correcta, idPregunta)
+	VALUE ('Mediterráneo de Serrat', TRUE, 710);
