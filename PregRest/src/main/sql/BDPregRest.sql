@@ -45,3 +45,5 @@ CREATE TABLE jugador(
 );
 
 SHOW TABLES;
+
+SELECT * FROM 
