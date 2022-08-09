@@ -111,7 +111,7 @@
 					<input type="text" id="ingresarNombre" name="nombreJugador"/>
 					<input type="submit" value="Inicio Sesión" class="submit">
 				</form>	
-				<% String mensaje = (String)session.getAttribute("mensaje");%>
+				<% String mensaje = (String)request.getAttribute("mensaje");%>
 					<%if (mensaje!=null){%>	
 						<div><%=mensaje %></div>				
 					<%}%>
