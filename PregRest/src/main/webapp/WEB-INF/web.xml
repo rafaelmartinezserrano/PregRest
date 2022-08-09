@@ -9,34 +9,5 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>buscarPartidasServlet</display-name>
-    <servlet-name>buscarPartidasServlet</servlet-name>
-    <servlet-class>com.afd.trivial.controlador.buscarPartidasServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>buscarPartidasServlet</servlet-name>
-    <url-pattern>/buscarPartidas</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>buscarPartidas</display-name>
-    <servlet-name>buscarPartidas</servlet-name>
-    <servlet-class>com.afd.trivial.controlador.buscarPartidas</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>buscarPartidas</servlet-name>
-    <url-pattern>/buscarPartidas</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>JugarServlet</display-name>
-    <servlet-name>JugarServlet</servlet-name>
-    <servlet-class>com.afd.trivial.controlador.JugarServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>JugarServlet</servlet-name>
-    <url-pattern>/Jugar</url-pattern>
-  </servlet-mapping>
+  
 </web-app>
