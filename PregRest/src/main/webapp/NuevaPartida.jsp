@@ -28,13 +28,13 @@ form { display:flex;
 <label for="ciencia">Ciencia y tecnología</label>
 <input type="checkbox" name="categoria" id="ciencia" value="1">
 <label for="geografíaEhistoria">Geografía e historia</label>
-<input type="checkbox" name="categoria" value="" id="geografíaEhistoria" value="2">
+<input type="checkbox" name="categoria" id="geografíaEhistoria" value="2">
 <label for="deportes">Deportes</label>
-<input type="checkbox" name="categoria"  id="deportes" value="3">
+<input type="checkbox" name="categoria" id="deportes" value="3">
 <label for="musica">Música</label>
-<input type="checkbox" name="categoria"  id="musica" value="4">
+<input type="checkbox" name="categoria" id="musica" value="4">
 <label for="cine">Cine</label>
-<input type="checkbox" name="categoria"  id="cine" value="5">
+<input type="checkbox" name="categoria" id="cine" value="5">
 <input type="submit" value="Crear Partida">
 
 
