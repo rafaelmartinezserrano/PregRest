@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -99,33 +100,32 @@ public class FachadaImpl extends Fachada {
 					Partida partida = new Partida(0, nombre, preguntas, null, maxJugadores, false);
 					sesion.save(partida);
 					transaccion.commit();
+					System.out.println("PARTIDA: " + partida);
 					return partida;
 				} catch (HibernateException ex) {
 					ex.printStackTrace();
 					transaccion.rollback();
 					return null;
-				} finally {
-					sesion.close();
-				}
+				} 
 		}
 	@Override
 	public boolean comprobarAlias(String alias) {
+		boolean resultado = false;
 		Session sesion = this.factoria.openSession();
 		Transaction transaccion = sesion.beginTransaction();
 		try {
-			TypedQuery<Jugador> consultaAlias = sesion.createQuery("from jugador where alias like :nombre", Jugador.class);
+			TypedQuery<Jugador> consultaAlias = sesion.createQuery("from Jugador where alias like :nombre", Jugador.class);
 			consultaAlias.setParameter("nombre", alias);
-			Jugador jugador = consultaAlias.getSingleResult();
+			resultado = !consultaAlias.getResultList().isEmpty();
 			transaccion.commit();
 		}catch (HibernateException ex) {
 			ex.printStackTrace();
 			transaccion.rollback();
-			sesion.close();
-			return false;
 		} finally {
 			sesion.close();
 		}
-		return true;
+		//System.out.println("RESULTADO: " + resultado);
+		return resultado;
 	}
 
 	@Override
@@ -134,7 +134,7 @@ public class FachadaImpl extends Fachada {
 		Session sesion = this.factoria.openSession();
 		Transaction transaccion = sesion.beginTransaction();
 		try {
-			TypedQuery<Jugador> consulta = sesion.createQuery("from jugador order by puntuacionTotal", Jugador.class);
+			TypedQuery<Jugador> consulta = sesion.createQuery("from Jugador order by puntuacionTotal", Jugador.class);
 			resultado = consulta.getResultList();
 			transaccion.commit();
 		} catch (HibernateException ex) {
@@ -166,12 +166,13 @@ public class FachadaImpl extends Fachada {
 	}
 
 	@Override
+	@Transactional
 	public Partida buscarPartidaPorId(int idPartida) {
 		Session sesion = this.factoria.openSession();
 		Transaction transaccion = sesion.beginTransaction();
 		Partida partida = null;
 		try {
-			TypedQuery<Partida> consulta = sesion.createQuery("from partida where idParida = :idPartida", Partida.class);
+			TypedQuery<Partida> consulta = sesion.createQuery("from Partida where idPartida = :idPartida", Partida.class);
 			consulta.setParameter("idPartida", idPartida);
 			partida = consulta.getSingleResult();
 			transaccion.commit();
@@ -179,9 +180,7 @@ public class FachadaImpl extends Fachada {
 			ex.printStackTrace();
 			transaccion.rollback();
 		
-		} finally {
-			sesion.close();
-		}
+		} 
 		return partida;
 	}
 	

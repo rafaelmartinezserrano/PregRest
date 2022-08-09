@@ -11,7 +11,7 @@
 	<body>
 		<form action="Registrar" method="get">
 			 <label for="nombreAlias">Alias</label><br/>
-		     <input id="nombreAlias" type="text" onchange="comprobarAlias();" name="alias" placeholder="Alias">
+		     <input id="nombreAlias" type="text" oninput="comprobarAlias();" name="alias" placeholder="Alias">
 		     <span id="nombreDisponible"></span>
 			 <input type="submit" value="Registrar" />
 		</form>

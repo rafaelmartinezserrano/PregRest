@@ -3,8 +3,10 @@ package com.afd.trivial.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,7 +23,8 @@ public class Partida {
 	private int idPartida;
 	@Column(name = "nombre")
 	private String nombreSala;
-	@ManyToMany
+	
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "preguntasPartida",
 	joinColumns = { @JoinColumn(name = "idPartida")},
 	inverseJoinColumns = {@JoinColumn(name ="idPregunta")}
