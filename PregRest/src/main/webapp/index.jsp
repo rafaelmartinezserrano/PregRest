@@ -8,7 +8,7 @@
 			<title>Trivial PregResp</title>
 			<style type="text/css">
 				*{
-				 -ms-box-sizing: border-box;
+				-ms-box-sizing: border-box;
 				-moz-box-sizing: border-box;
 				-webkit-box-sizing: border-box;
 				box-sizing: border-box;
@@ -16,7 +16,6 @@
 				padding: 0;
 				border: 0;
 				}
-
 				html, body{
 				width: 100%;
 				height: 100%;
@@ -24,10 +23,9 @@
 				font-family: 'Open Sans', sans-serif;
 				font-weight: 200;
 				}
-				
 				.login{
-				 position: relative;
-				 top: 50%;
+				 position: absolute;
+				 top: 10%;
 				 width: 250px;
 				 display: table;
 				 margin: 0 auto 0 auto;
@@ -44,7 +42,6 @@
 					  font-size: 20px;
 					  
 					  &:after{
-					    content: "";
 					    background-image: url(http://simpleicon.com/wp-content/uploads/multy-user.png);
 					    background-size: 100px 100px;
 					    background-repeat: no-repeat;
@@ -105,8 +102,7 @@
 		</head>
 		<body>
 			<header class="login">
-				<img alt="pregResp monigote" src="https://c.tenor.com/0BlbOuaPCMYAAAAi/how-where.gif">
-				<h1>Trivial PregResp</h1>
+				<img alt="pregResp logo" src="imagenes/logopr.png">
 			</header>
 			<section class="legend">
 				<h2>Hola!!!</h2>
