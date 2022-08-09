@@ -1,14 +1,17 @@
 package com.afd.trivial.controlador;
 
+import java.io.IOException;
+
+import com.afd.trivial.modelo.Fachada;
+import com.afd.trivial.modelo.FachadaImpl;
+import com.afd.trivial.modelo.Jugador;
+
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import com.afd.trivial.modelo.Fachada;
-import com.afd.trivial.modelo.Jugador;
 
 /**
  * Servlet implementation class InciarSesionServlet
@@ -22,7 +25,7 @@ public class InciarSesionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nombre = request.getParameter("nombreJugador");
-		Fachada fachada = Fachada.getInstance();
+		Fachada fachada = FachadaImpl.getInstance();
 		try {
 			Jugador j = fachada.iniciarSesion(nombre);
 			if(j!=null) {
