@@ -100,7 +100,6 @@ public class FachadaImpl extends Fachada {
 					Partida partida = new Partida(0, nombre, preguntas, null, maxJugadores, false);
 					sesion.save(partida);
 					transaccion.commit();
-					System.out.println("PARTIDA: " + partida);
 					return partida;
 				} catch (HibernateException ex) {
 					ex.printStackTrace();
