@@ -30,7 +30,7 @@ public class InciarSesionServlet extends HttpServlet {
 			Jugador j = fachada.iniciarSesion(nombre);
 			if(j!=null) {
 				request.getSession().setAttribute("jugador", j);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("Menu.jsp");
 				dispatcher.forward(request, response);
 			}else {
 				request.setAttribute("mensaje", "Nombre de jugador o jugadora ya existe");

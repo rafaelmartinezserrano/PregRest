@@ -25,7 +25,7 @@ public class JugarServlet extends HttpServlet {
 		int idPartida = Integer.parseInt(idPartidaTexto);
 		Fachada fachada = Fachada.getInstance();
 		request.getSession().getServletContext().setAttribute("partida", fachada.buscarPartidaPorId(idPartida));
-		request.getRequestDispatcher("jugar.jsp").forward(request, response);
+		request.getRequestDispatcher("Jugar.jsp").forward(request, response);
 	}
 
 	/**
