@@ -114,6 +114,7 @@ public class FachadaImpl extends Fachada {
 		Transaction transaccion = sesion.beginTransaction();
 		try {
 			TypedQuery<Jugador> consultaAlias = sesion.createQuery("from jugador where alias like :nombre", Jugador.class);
+			consultaAlias.setParameter("nombre", alias);
 			Jugador jugador = consultaAlias.getSingleResult();
 			transaccion.commit();
 		}catch (HibernateException ex) {
@@ -163,6 +164,25 @@ public class FachadaImpl extends Fachada {
 		}
 		return resultado;
 	}
-	
+
+	@Override
+	public Partida buscarPartidaPorId(int idPartida) {
+		Session sesion = this.factoria.openSession();
+		Transaction transaccion = sesion.beginTransaction();
+		Partida partida = null;
+		try {
+			TypedQuery<Partida> consulta = sesion.createQuery("from partida where idParida = :idPartida", Partida.class);
+			consulta.setParameter("idPartida", idPartida);
+			partida = consulta.getSingleResult();
+			transaccion.commit();
+		}catch (HibernateException ex) {
+			ex.printStackTrace();
+			transaccion.rollback();
+		
+		} finally {
+			sesion.close();
+		}
+		return partida;
+	}
 	
 }
