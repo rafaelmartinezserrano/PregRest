@@ -17,14 +17,14 @@ form { display:flex;
 <header>
 <img src="imagenes/logopr.png" alt="logo preguntas y respuestas">
 </header>
-<form action="" method="">
+<form action="NuevaPartida" method="">
 <label for="nombrePartida">Nombre de la partida</label>
-<input type="text" id="nombrePartida"  required
+<input type="text" id="nombrePartida" name="nombrePartida" required
        minlength="4" maxlength="15" size="15">
 <label for="numJugadores">Introduce el número de jugadores</label>
-<input type="number" id="numJugadores" name="" min="1" max="8">
+<input type="number" id="numJugadores" name="numJugadores" min="1" max="8">
 <label for="PreguntasPorCategoria">¿Cuántas preguntas por categoria?</label>
-<input type="number" id="PreguntasPorCategoria" name="" min="1" max="5">
+<input type="number" id="PreguntasPorCategoria" name="pregPorCategoria" min="1" max="5">
 <label for="ciencia">Ciencia y tecnología</label>
 <input type="checkbox" name="categoria" id="ciencia" value="1">
 <label for="geografíaEhistoria">Geografía e historia</label>
