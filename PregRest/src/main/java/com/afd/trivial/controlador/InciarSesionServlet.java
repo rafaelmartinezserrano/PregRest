@@ -26,7 +26,7 @@ public class InciarSesionServlet extends HttpServlet {
 		try {
 			Jugador j = fachada.iniciarSesion(nombre);
 			if(j!=null) {
-				request.getSession().setAttribute(nombre, j);
+				request.getSession().setAttribute("jugador", j);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");
 				dispatcher.forward(request, response);
 			}else {

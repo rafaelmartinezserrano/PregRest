@@ -32,10 +32,10 @@
 				<a href="NuevaPartida.jsp">Nueva partida</a>
 				</div>
 				<div>
-				<a href="buscarPartida.jsp">Buscar partida</a>
+				<a href="BuscarPartidas">Buscar partida</a>
 				</div>
 				<div>
-				<a href="rankin.jsp">Ver puntuación</a>
+				<a href="ranking.jsp">Ver puntuación</a>
 				</div>
 			</section>
 	</body>

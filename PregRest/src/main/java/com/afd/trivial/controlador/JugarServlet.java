@@ -5,6 +5,7 @@ import java.io.IOException;
 import com.afd.trivial.modelo.Fachada;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -12,6 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class JugarServlet
  */
+@WebServlet("/jugarPartida")
 public class JugarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -19,8 +21,10 @@ public class JugarServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String idPartidaTexto = request.getParameter("partida");
+		int idPartida = Integer.parseInt(idPartidaTexto);
 		Fachada fachada = Fachada.getInstance();
-		request.setAttribute("jugarPartida", fachada.buscarPartidas());
+		request.getSession().getServletContext().setAttribute("partida", fachada.buscarPartidaPorId(idPartida));
 		request.getRequestDispatcher("jugar.jsp").forward(request, response);
 	}
 

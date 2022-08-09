@@ -15,6 +15,9 @@
 		     <span id="nombreDisponible"></span>
 			 <input type="submit" value="Registrar" />
 		</form>
-	
+		<% String mensaje = (String)request.getAttribute("mensajeError");%>
+		<%if (mensaje!=null){%>	
+			<div><%=mensaje %></div>				
+		<%}%>
 	</body>
 </html>

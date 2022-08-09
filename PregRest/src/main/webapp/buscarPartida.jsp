@@ -13,20 +13,21 @@
 		<h1>BUSCAR PARTIDA</h1>
 		<form action="jugarPartida" method="get">
 			<h2>Seleccionar partida</h2>
-			<select name="partida" id="idpartida">
-				<option></option>
+			
 				<% List<Partida> listaPartidas = (List<Partida>)request.getAttribute("verPartidas"); %>
 					<%if (listaPartidas != null) {  %>
-							<% for (int i=0; i< listaPartidas.size(); i++) { %>
-								<%Partida partida = listaPartidas.get(i); %>
-								<option value = "<%=partida.getIdPartida()%>"><%= partida.getNombreSala()%></option>
+					<select name="partida" id="idpartida">
+						<option></option>
+						<% for (int i=0; i< listaPartidas.size(); i++) { %>
+							<%Partida partida = listaPartidas.get(i); %>
+							<option value = "<%=partida.getIdPartida()%>"><%= partida.getNombreSala()%></option>
 						<% } %>
+					</select>
 					<% } else { %>
 						<div>
 							<h3>No se han encontrado partidas</h3>
 						</div>
 					<% } %>	
-			</select>
 			<br/>
 			<input type="submit" value="JUGAR"/>
 		</form>

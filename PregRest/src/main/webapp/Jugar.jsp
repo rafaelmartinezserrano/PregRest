@@ -1,3 +1,4 @@
+<%@page import="com.afd.trivial.modelo.Partida"%>
 <%@page import="com.afd.trivial.modelo.Respuesta"%>
 <%@page import="com.afd.trivial.modelo.Pregunta"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
@@ -28,18 +29,18 @@
 	</style>
 </head>
 	<body>
-		<% Pregunta p = (Pregunta)request.getAttribute("pregunta"); %>
+		<% Partida partida = (Partida)application.getAttribute("partida"); %>
 		<form action="">
 			<div class="pregresp">
-			<div class="pregunta"><%=p.getEnunciado() %>
-		 
-			</div>
-			<div class="respuestas"> 
-			<% for (Respuesta r: p.getListaRespuesta()) { %> 
-				<input type="radio" name="respuesta" value="<%= r.getIdRespuesta()%>"/> <%= r.getTexto() %>
-				<br/>
-			<% } %>
-		 	</div>
+			<% for (Pregunta p : partida.getListaPreguntas()) { %>
+				<div class="pregunta"><%=p.getEnunciado() %></div>
+				<div class="respuestas"> 
+				<% for (Respuesta r: p.getListaRespuesta()) { %> 
+					<input type="radio" name="respuesta" value="<%= r.getIdRespuesta()%>"/> <%= r.getTexto() %>
+					<br/>
+				<% } %>
+			 	</div>
+			 <%} %>
 			<input type="submit" value="Enviar respuesta"> 
 			</div>
 		</form>

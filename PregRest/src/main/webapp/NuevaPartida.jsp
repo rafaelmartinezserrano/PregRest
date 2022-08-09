@@ -26,15 +26,15 @@ form { display:flex;
 <label for="PreguntasPorCategoria">¿Cuántas preguntas por categoria?</label>
 <input type="number" id="PreguntasPorCategoria" name="" min="1" max="5">
 <label for="ciencia">Ciencia y tecnología</label>
-<input type="checkbox" id="ciencia" value="ciencia">
+<input type="checkbox" name="categoria" id="ciencia" value="1">
 <label for="geografíaEhistoria">Geografía e historia</label>
-<input type="checkbox" id="geografíaEhistoria" value="geografia">
+<input type="checkbox" name="categoria" value="" id="geografíaEhistoria" value="2">
 <label for="deportes">Deportes</label>
-<input type="checkbox" id="deportes" value="deportes">
+<input type="checkbox" name="categoria"  id="deportes" value="3">
 <label for="musica">Música</label>
-<input type="checkbox" id="musica" value="musica">
+<input type="checkbox" name="categoria"  id="musica" value="4">
 <label for="cine">Cine</label>
-<input type="checkbox" id="cine" value="cine">
+<input type="checkbox" name="categoria"  id="cine" value="5">
 <input type="submit" value="Crear Partida">
 
 

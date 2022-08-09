@@ -7,6 +7,7 @@ import com.afd.trivial.modelo.Fachada;
 import com.afd.trivial.modelo.Partida;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -14,14 +15,14 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class buscarPartidas
  */
-public class buscarPartidas extends HttpServlet {
+@WebServlet("/BuscarPartidas")
+public class BuscarPartidas extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
   	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nombrePartida = request.getParameter("nombrePartida");
 		Fachada fachada = Fachada.getInstance();
 		List<Partida> listaPartidas = fachada.buscarPartidas();
 		request.setAttribute("verPartidas", listaPartidas);
