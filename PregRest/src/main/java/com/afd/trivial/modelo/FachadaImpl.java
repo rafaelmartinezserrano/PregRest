@@ -91,6 +91,7 @@ public class FachadaImpl extends Fachada {
 					List<Pregunta> preguntas = new ArrayList<Pregunta>();
 					for (int i = 0; i < categorias.length; i++) {
 						TypedQuery<Pregunta> consulta = sesion.createQuery("from Pregunta where idCategoria = :categoria", Pregunta.class);
+						consulta.setParameter("categoria", categorias[i]);
 						List<Pregunta> lista = consulta.getResultList();
 						Collections.shuffle(lista);
 						preguntas.addAll(lista.subList(0, numPreguntasPorCategoria));
