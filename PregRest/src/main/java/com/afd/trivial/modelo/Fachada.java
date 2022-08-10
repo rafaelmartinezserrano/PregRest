@@ -46,4 +46,11 @@ public abstract class Fachada {
 	public abstract List<Categoria> obtenerCategoria();
 
 	public abstract Partida buscarPartidaPorId(int idPartida);
+
+
+	public abstract Jugador corregirPartida(ArrayList<Integer> listaRespuestas, Partida partida, Jugador jugador) ;
+		
+	
+		
+	
 }

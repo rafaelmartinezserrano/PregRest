@@ -12,6 +12,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 public class FachadaImpl extends Fachada {
 	
@@ -83,6 +84,28 @@ public class FachadaImpl extends Fachada {
 			}
 			return resultado;
 		}
+	@Override
+	public Jugador corregirPartida(ArrayList<Integer> listaRespuestas, Partida partida, Jugador jugador ) {
+		Session sesion = this.factoria.openSession();
+		Transaction transaccion = sesion.beginTransaction();
+		 try {
+			  for (int i = 0; i < listaRespuestas.size(); i++) {
+				Query consulta =sesion.createQuery("Select correcta from Respuesta where idRespuesta = :id");
+				consulta.setParameter("id", listaRespuestas.get(i));
+				boolean correcta =(Boolean)consulta.uniqueResult();
+				//opcion con operadores ternarios
+				jugador.setPuntuacion(jugador.getPuntuacion()+(correcta?1:0));
+		         }
+			  jugador.setPuntuacionTotal(jugador.getPuntuacionTotal() + jugador.getPuntuacion());
+			  sesion.update(jugador);
+			  transaccion.commit();
+		      return jugador;
+		 }catch (HibernateException ex) {
+				ex.printStackTrace();
+				transaccion.rollback();
+				return null;
+			} 
+	}
 
 	@Override
 	public Partida crearPartida(String nombre, int maxJugadores, int numPreguntasPorCategoria, int[] categorias) {
