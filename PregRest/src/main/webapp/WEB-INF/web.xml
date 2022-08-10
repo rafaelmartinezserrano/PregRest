@@ -9,5 +9,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-
+  <servlet>
+    <description></description>
+    <display-name>RecogerRespuestasServlet</display-name>
+    <servlet-name>RecogerRespuestasServlet</servlet-name>
+    <servlet-class>com.afd.trivial.controlador.RecogerRespuestasServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RecogerRespuestasServlet</servlet-name>
+    <url-pattern>/RecogerRespuestas</url-pattern>
+  </servlet-mapping>
 </web-app>
