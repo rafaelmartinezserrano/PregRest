@@ -16,6 +16,7 @@
 		<title>Nueva partida</title>
 	</head>
 <body>
+
 	<header>
 		<img src="imagenes/logopr.png" alt="logo preguntas y respuestas">
 	</header>

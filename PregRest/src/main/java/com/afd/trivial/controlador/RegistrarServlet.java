@@ -17,7 +17,6 @@ import com.afd.trivial.modelo.Jugador;
 @WebServlet("/Registrar")
 public class RegistrarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -27,11 +26,12 @@ public class RegistrarServlet extends HttpServlet {
 		Fachada fachada = Fachada.getInstance();
 		Jugador jugador = fachada.registrarJugador(usuario);
 		if(jugador == null) {
-			request.setAttribute("mensajeError", "Error de Comprobacion. Contacte con el servicio tecnico.");
+			request.setAttribute("mensaje", "Error de Comprobacion. Contacte con el servicio tecnico.");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("registro.jsp");
 			dispatcher.forward(request, response);
 		}else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+			request.setAttribute("mensaje", "Usuario registrado correctamente");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("registro.jsp");
 			dispatcher.forward(request, response);
 		}
 		
