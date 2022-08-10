@@ -37,7 +37,6 @@ form { display:flex;
 <input type="checkbox" name="categoria" id="cine" value="5">
 <input type="submit" value="Crear Partida">
 
-
 </form>
 
 
