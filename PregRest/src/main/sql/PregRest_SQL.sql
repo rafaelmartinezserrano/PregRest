@@ -1,0 +1,74 @@
+
+
+INSERT INTO PREGUNTA(idPregunta, enunciado, idCategoria)
+	VALUES (301, '¿Qué elemento está presente en todas las moléculas orgánicas?', 1);
+
+INSERT INTO RESPUESTA(texto, correcta, idPregunta)
+	VALUES ('Hidrogeno', false, 301);
+INSERT INTO RESPUESTA(texto, correcta, idPregunta)
+	VALUES ('Oxigeno', false, 301);
+INSERT INTO RESPUESTA(texto, correcta, idPregunta)
+	VALUES ('Carbono', true, 301);
+
+
+
+INSERT INTO PREGUNTA(idPregunta, enunciado, idCategoria)
+	VALUES (302, '¿Qué edad tiene la Tierra?', 1);
+
+INSERT INTO RESPUESTA(texto, correcta, idPregunta)
+	VALUES ('4.543 millones de años', true, 302);
+INSERT INTO RESPUESTA(texto, correcta, idPregunta)
+	VALUES ('6.108 millones de años', false, 302);
+INSERT INTO RESPUESTA(texto, correcta, idPregunta)
+	VALUES ('2.920 millones de años', false, 302);
+
+
+
+INSERT INTO PREGUNTA(idPregunta, enunciado, idCategoria)
+	VALUES (303, '¿Cuántos elementos tiene la tabla periódica?', 1);
+
+INSERT INTO RESPUESTA(texto, correcta, idPregunta)
+	VALUES ('104', false, 303);
+INSERT INTO RESPUESTA(texto, correcta, idPregunta)
+	VALUES ('118', true, 303);
+INSERT INTO RESPUESTA(texto, correcta, idPregunta)
+	VALUES ('109', false, 303);
+
+
+
+INSERT INTO PREGUNTA(idPregunta, enunciado, idCategoria)
+	VALUES (304, '¿Qué ciencia estudia la sangre?', 1);
+
+INSERT INTO RESPUESTA(texto, correcta, idPregunta)
+	VALUES ('Hemodinamica', false, 304);
+INSERT INTO RESPUESTA(texto, correcta, idPregunta)
+	VALUES ('Hemoglobina', false, 304);
+INSERT INTO RESPUESTA(texto, correcta, idPregunta)
+	VALUES ('Hematología', true, 304);
+
+
+
+INSERT INTO PREGUNTA(idPregunta, enunciado, idCategoria)
+	VALUES (305, '¿En qué mes el Sol está más cerca de la Tierra?', 1);
+
+INSERT INTO RESPUESTA(texto, correcta, idPregunta)
+	VALUES ('julio', false, 305);
+INSERT INTO RESPUESTA(texto, correcta, idPregunta)
+	VALUES ('diciembre', true, 305);
+INSERT INTO RESPUESTA(texto, correcta, idPregunta)
+	VALUES ('agosto', false, 305);
+
+
+
+INSERT INTO PREGUNTA(idPregunta, enunciado, idCategoria)
+	VALUES (306, 'De los cinco sentidos, ¿cuál se desarrolla primero?', 1);
+
+INSERT INTO RESPUESTA(texto, correcta, idPregunta)
+	VALUES ('vista', false, 306);
+INSERT INTO RESPUESTA(texto, correcta, idPregunta)
+	VALUES ('olfato', true, 306);
+INSERT INTO RESPUESTAtexto, correcta, idPregunta)
+	VALUES ('tacto', false, 306);
+
+
+select * from respuesta where idPregunta >300
