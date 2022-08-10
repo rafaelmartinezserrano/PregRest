@@ -222,16 +222,16 @@ INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUE ('Mediterráneo, Serra
 
 INSERT INTO PREGUNTA (idPregunta, enunciado, idCategoria) VALUES (100, '¿Cúales son los colores de los cinco anillos de los Juegos Olímpicos?', 3);
 
-INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUES ( '42,16 km', true, 100);
-INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUES ( '15 km', false, 100);
-INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUES ( '20,5 km', false, 100);
+INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUES ('Azul, rojo, amarillo, verde y negro', true, 100);
+INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUES ('Azul, dorado, lila, verde y negro', false, 100);
+INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUES ('Amarillo, dorado, lila, naranja, azul', false,  100);
 
 
 INSERT INTO PREGUNTA (idPregunta, enunciado, idCategoria) VALUES (101, '¿Cúantos kilómetros de distancia mide una maratón?', 3);
 
-INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUES ('Azul, rojo, amarillo, verde y negro', true, 101);
-INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUES ('Azul, dorado, lila, verde y negro', false, 101);
-INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUES ('Amarillo, dorado, lila, naranja, azul', false, 101);
+INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUES ('42,16 km', true,101);
+INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUES ('15 km', false, 101);
+INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUES ('20,5 km', false, 101);
 
 
 INSERT INTO PREGUNTA (idPregunta, enunciado, idCategoria) VALUES (102, '¿Cúantas veces Michael Jordan ganó campeonatos para los Chicago Bulls?', 3);
