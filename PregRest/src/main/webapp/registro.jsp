@@ -15,9 +15,11 @@
 		     <span id="nombreDisponible"></span>
 			 <input type="submit" value="Registrar" />
 		</form>
-		<% String mensaje = (String)request.getAttribute("mensajeError");%>
+		<% String mensaje = (String)request.getAttribute("mensaje");%>
 		<%if (mensaje!=null){%>	
 			<div><%=mensaje %></div>				
 		<%}%>
+		
+		<div>ya tienes cuenta? puedes iniciar sesion: <a href="index.jsp">aquí</a></div>
 	</body>
 </html>
