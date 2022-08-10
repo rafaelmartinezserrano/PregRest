@@ -42,6 +42,10 @@
 			<input type="submit" value="Crear Partida">
 		
 		</form>
-
+		
+		<% String mensaje = (String)request.getAttribute("mensaje");%>
+		<%if (mensaje!=null){%>
+			<div><%=mensaje %></div>				
+		<%}%>
 </body>
 </html>
