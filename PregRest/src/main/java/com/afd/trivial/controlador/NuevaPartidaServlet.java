@@ -1,5 +1,6 @@
 package com.afd.trivial.controlador;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -33,7 +34,22 @@ public class NuevaPartidaServlet extends HttpServlet {
 		}
 		Fachada fachada = Fachada.getInstance();
 		Partida nuevaPartida = fachada.crearPartida(nombrePartida, numJugadores, pregPorCategoria, idCategorias);
-		request.getRequestDispatcher("Menu.jsp").forward(request, response);
+		
+		
+		request.getRequestDispatcher("Nuevapartida.jsp").forward(request, response);
+		
+		if(nuevaPartida == null) {
+			request.setAttribute("mensaje", "Error al crear partida. Contacte con el servicio tecnico.");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("Nuevapartida.jsp");
+			dispatcher.forward(request, response);
+		}else {
+			request.setAttribute("mensaje", "Partida creada correctamente, puedes buscar tu partida aqui: <a href=\"buscarPartida.jsp\">aquí</a>");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("Nuevapartida.jsp");
+			dispatcher.forward(request, response);
+		}
+		
+		
+		
 	}
 
 	/**
