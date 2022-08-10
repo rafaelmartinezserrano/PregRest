@@ -36,7 +36,7 @@ public class Pregunta {
 		this.idPregunta = idPregunta;
 		this.enunciado = enunciado;
 		this.categoria = categoria;
-		this.listaRespuesta = new ArrayList<Respuesta>();
+		this.listaRespuesta = new ArrayList<Respuesta>(); 
 	}
 	
 	public int getIdPregunta() {

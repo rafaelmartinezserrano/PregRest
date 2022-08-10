@@ -69,7 +69,7 @@ public class Partida {
 	}
 
 	public String getNombreSala() {
-		return nombreSala;
+		return nombreSala; 
 	}
 
 	public void setNombreSala(String nombreSala) {
