@@ -8,6 +8,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Ranking</title>
+		<link rel="stylesheet" type="text/css" href="estiloJuego.css">
 	</head>
 	<body>
 		<h1>Ranking de Jugadores </h1>

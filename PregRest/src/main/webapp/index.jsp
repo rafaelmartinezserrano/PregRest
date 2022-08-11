@@ -6,6 +6,7 @@
 		<head>
 			<meta charset="utf-8">
 			<title>Trivial PregResp</title>
+			<link rel="stylesheet" type="text/css" href="estiloJuego.css">
 			<style type="text/css">
 				*{
 				-ms-box-sizing: border-box;

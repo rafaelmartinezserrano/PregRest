@@ -6,7 +6,7 @@
 		<meta charset="utf-8">
 		<title>Registro</title>
 		<script src="registro.js"></script>
-		<link rel="stylesheet" type="text/css" href="registro.css"/>
+		<link rel="stylesheet" type="text/css" href="estiloJuego.css">
 	</head>
 	<body>
 		<form action="Registrar" method="get">
