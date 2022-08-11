@@ -34,10 +34,7 @@ public class NuevaPartidaServlet extends HttpServlet {
 		}
 		Fachada fachada = Fachada.getInstance();
 		Partida nuevaPartida = fachada.crearPartida(nombrePartida, numJugadores, pregPorCategoria, idCategorias);
-		
-		
-		request.getRequestDispatcher("Nuevapartida.jsp").forward(request, response);
-		
+
 		if(nuevaPartida == null) {
 			request.setAttribute("mensaje", "Error al crear partida. Contacte con el servicio tecnico.");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("Nuevapartida.jsp");

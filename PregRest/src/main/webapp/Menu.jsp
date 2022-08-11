@@ -45,7 +45,7 @@
 			
 			<section>
 				<div>
-				<a href="NuevaPartida.jsp">Nueva partida</a>
+				<a href="RecuperarListaCategorias">Nueva partida</a>
 				</div>
 				<div>
 				<a href="BuscarPartidas">Buscar partida</a>

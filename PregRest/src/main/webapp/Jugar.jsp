@@ -30,7 +30,7 @@
 </head>
 	<body>
 		<% Partida partida = (Partida)application.getAttribute("partida"); %>
-		<form action="">
+		<form action="RecogerRespuestas">
 			<div class="pregresp">
 			<% for (Pregunta p : partida.getListaPreguntas()) { %>
 				<div class="pregunta"><%=p.getEnunciado() %></div>

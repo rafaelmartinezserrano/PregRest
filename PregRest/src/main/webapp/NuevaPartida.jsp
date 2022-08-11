@@ -22,7 +22,7 @@
 	</header>
 		<form action="NuevaPartida" method="get">
 		
-		<%List<Categoria> listaCategoria =(List<Categoria>)request.getAttribute("listaCategoria"); %>
+		<%List<Categoria> listaCategoria =(List<Categoria>)request.getAttribute("listaCategorias"); %>
 		
 			<label for="nombrePartida">Nombre de la partida</label>
 			<input type="text" id="nombrePartida" name="nombrePartida" required
