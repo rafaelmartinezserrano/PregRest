@@ -32,24 +32,19 @@ public class RecogerRespuestasServlet extends HttpServlet {
 		Jugador jugador = (Jugador)request.getSession().getAttribute("jugador");
 		int numPreguntas= partida.getListaPreguntas().size();
 		ArrayList<Integer>listaRespuestas= new ArrayList<Integer>(numPreguntas);
-			for (int i = 0; i < numPreguntas; i++) {
-				int idPregunta = partida.getListaPreguntas().get(i).getIdPregunta();
-				int respuesta=Integer.parseInt(request.getParameter("resp"+idPregunta));
-				listaRespuestas.add(respuesta);
-			}
-			jugador = fachada.corregirPartida(listaRespuestas, partida, jugador);
-			request.getSession().setAttribute("jugador", jugador);
-			//Vamos a partidaAcabada.jsp a través de una request nueva
-			//NO se puede pasar información dentro de la request
-			//En el navegador del cliente aparece esta url
-			response.sendRedirect("partidaAcabada.jsp");
-		
-		
-		try {
-			
-		}catch (Exception e) {
-			throw new ServletException(e);
+		for (int i = 0; i < numPreguntas; i++) {
+			int idPregunta = partida.getListaPreguntas().get(i).getIdPregunta();
+			int respuesta=Integer.parseInt(request.getParameter("resp"+idPregunta));
+			listaRespuestas.add(respuesta);
 		}
+		jugador = fachada.corregirPartida(listaRespuestas, partida, jugador);
+		request.getSession().setAttribute("jugador", jugador);
+
+		//Vamos a partidaAcabada.jsp a través de una request nueva
+		//NO se puede pasar información dentro de la request
+		//En el navegador del cliente aparece esta url
+		response.sendRedirect("partidaAcabada.jsp");		
+		
 	}
 
 	/**
