@@ -42,13 +42,8 @@ public class RecogerRespuestasServlet extends HttpServlet {
 			request.getSession().setAttribute("jugador", jugador);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("partidaAcabada.jsp");
 			dispatcher.forward(request, response);
-		
-		
-		try {
 			
-		}catch (Exception e) {
-			throw new ServletException(e);
-		}
+		
 	}
 
 	/**
