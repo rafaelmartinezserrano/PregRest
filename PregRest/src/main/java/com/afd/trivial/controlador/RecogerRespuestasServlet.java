@@ -40,8 +40,10 @@ public class RecogerRespuestasServlet extends HttpServlet {
 			}
 			jugador = fachada.corregirPartida(listaRespuestas, partida, jugador);
 			request.getSession().setAttribute("jugador", jugador);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("partidaAcabada.jsp");
-			dispatcher.forward(request, response);
+			//El método sendRedirect crea un request nueva. Eso implica:
+			//	No se puede pasar información a la jsp a través de la request
+			//	La URL va a aparecer en el navegador del usuario
+			response.sendRedirect("partidaAcabada.jsp");
 			
 		
 	}

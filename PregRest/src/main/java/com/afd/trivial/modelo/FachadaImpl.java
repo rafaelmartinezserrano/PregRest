@@ -158,7 +158,7 @@ public class FachadaImpl extends Fachada {
 		Session sesion = this.factoria.openSession();
 		Transaction transaccion = sesion.beginTransaction();
 		try {
-			TypedQuery<Jugador> consulta = sesion.createQuery("from Jugador order by puntuacionTotal", Jugador.class);
+			TypedQuery<Jugador> consulta = sesion.createQuery("from Jugador order by puntuacionTotal DESC", Jugador.class);
 			resultado = consulta.getResultList();
 			transaccion.commit();
 		} catch (HibernateException ex) {

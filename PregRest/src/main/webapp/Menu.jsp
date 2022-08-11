@@ -51,8 +51,14 @@
 				<a href="BuscarPartidas">Buscar partida</a>
 				</div>
 				<div>
-				<a href="ranking.jsp">Ver puntuación</a>
+				<a href="RankingJugadores">Ver puntuación</a>
 				</div>
 			</section>
+			<div>
+			<% String mensaje = (String)request.getAttribute("mensaje");%>
+			<%if (mensaje!=null){%>
+				<div><%=mensaje %></div>				
+			<%}%>
+			</div>
 	</body>
 </html>

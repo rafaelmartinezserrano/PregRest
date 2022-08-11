@@ -37,11 +37,11 @@ public class NuevaPartidaServlet extends HttpServlet {
 
 		if(nuevaPartida == null) {
 			request.setAttribute("mensaje", "Error al crear partida. Contacte con el servicio tecnico.");
-			RequestDispatcher dispatcher = request.getRequestDispatcher("Nuevapartida.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("Menu.jsp");
 			dispatcher.forward(request, response);
 		}else {
-			request.setAttribute("mensaje", "Partida creada correctamente, puedes buscar tu partida aqui: <a href=\"buscarPartida.jsp\">aquí</a>");
-			RequestDispatcher dispatcher = request.getRequestDispatcher("Nuevapartida.jsp");
+			request.setAttribute("mensaje", "Partida creada correctamente, puedes buscar tu partida aqui: <a href=\"BuscarPartidas\">aquí</a>");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("Menu.jsp");
 			dispatcher.forward(request, response);
 		}
 		
