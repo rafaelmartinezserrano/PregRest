@@ -68,6 +68,17 @@
 					 padding-top: 40px;
 					 z-index: -1;
 			}
+	h1 {
+			padding-top: 50px;
+			text-align:center;
+			color:#3B3C9B;
+ 			 text-shadow: 2px 2px;
+			}
+			
+	ul {
+			text-align:center;
+			font-size: 15px;
+		}
 	 h2 {
 			padding-top: 50px;
 			text-align:center;
