@@ -7,6 +7,7 @@
 <html lang="es">
 	<head>
 		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="estiloJuego.css">
 		<title>Buscar partida</title>
 	</head>
 	<body>

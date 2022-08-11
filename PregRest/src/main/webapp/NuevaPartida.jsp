@@ -6,6 +6,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="estiloJuego.css">
 		<style type="text/css">
 		form { display:flex;
 		       justify-content:center;

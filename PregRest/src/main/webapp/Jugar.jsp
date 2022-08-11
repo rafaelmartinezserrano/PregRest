@@ -9,6 +9,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Jugar</title>
+	<link rel="stylesheet" type="text/css" href="estiloJuego.css">
 	<style>
 		.pregresp {
 		border: 1px solid #7DA5E0;

@@ -6,6 +6,7 @@
 	<head>
 	<meta charset="utf-8">
 	<title>Partida Acabada</title>
+	<link rel="stylesheet" type="text/css" href="estiloJuego.css">
 	</head>
 	<body>
 		<header>

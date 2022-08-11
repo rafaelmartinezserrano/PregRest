@@ -5,6 +5,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Opciones de juego</title>
+		<link rel="stylesheet" type="text/css" href="estiloJuego.css">
 		<style type="text/css">
 			body {
 			background-image: radial-gradient(circle at 
