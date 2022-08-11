@@ -13,7 +13,7 @@
 			 <label for="nombreAlias">Alias</label><br/>
 		     <input id="nombreAlias" type="text" oninput="comprobarAlias();" name="alias" placeholder="Alias">
 		     <span id="nombreDisponible"></span>
-			 <input type="submit" value="Registrar" />
+			 <input type="submit" id="anularBoton" value="Registrar" />
 		</form>
 		<% String mensaje = (String)request.getAttribute("mensaje");%>
 		<%if (mensaje!=null){%>	

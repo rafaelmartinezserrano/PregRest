@@ -9,7 +9,7 @@ CREATE TABLE categoria(
 );
 CREATE TABLE jugador(
 	idJugador INT AUTO_INCREMENT,
-	alias VARCHAR(33),
+	alias VARCHAR(33) UNIQUE,
 	puntuacionTotal INT,
 	CONSTRAINT pk_jugador PRIMARY KEY (idJugador)
 );
@@ -375,5 +375,7 @@ INSERT INTO Respuesta (texto, correcta, idPregunta) VALUES ('2005',false,605);
 
 	UPDATE respuesta SET texto = '20,5 km'
 	 WHERE texto LIKE 'Amarillo, dorado, lila, naranja, azul%' and idPregunta like 101;
+	 
+	ALTER TABLE jugador MODIFY COLUMN alias VARCHAR(33) UNIQUE;
 	 
 select * from respuesta where idPregunta like 100   */
