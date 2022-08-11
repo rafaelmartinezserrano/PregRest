@@ -9,7 +9,7 @@ CREATE TABLE categoria(
 );
 CREATE TABLE jugador(
 	idJugador INT AUTO_INCREMENT,
-	alias VARCHAR(33),
+	alias VARCHAR(33) UNIQUE,
 	puntuacionTotal INT,
 	CONSTRAINT pk_jugador PRIMARY KEY (idJugador)
 );
@@ -138,9 +138,9 @@ INSERT INTO RESPUESTA(texto,correcta,idPregunta) VALUES('Central', true, 404);
 
 INSERT INTO PREGUNTA(idPregunta,enunciado,idCategoria) VALUES(405,'Los Picos de Europa están en...?', 2 );
 
-INSERT INTO RESPUESTA(texto,correcta,idPregunta) VALUES('Andalucía', false, 404);
-INSERT INTO RESPUESTA(texto,correcta,idPregunta) VALUES('Asturias', true, 404);
-INSERT INTO RESPUESTA(texto,correcta,idPregunta) VALUES('Cataluña', false, 404);
+INSERT INTO RESPUESTA(texto,correcta,idPregunta) VALUES('Andalucía', false, 405);
+INSERT INTO RESPUESTA(texto,correcta,idPregunta) VALUES('Asturias', true, 405);
+INSERT INTO RESPUESTA(texto,correcta,idPregunta) VALUES('Cataluña', false, 405);
 
 
 INSERT INTO PREGUNTA (idPregunta, enunciado, idCategoria) VALUES (700, '¿Quién saltó a la fama en 2008 con el lanzamiento del single I Kissed a Girl?', 4);
@@ -222,16 +222,16 @@ INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUE ('Mediterráneo, Serra
 
 INSERT INTO PREGUNTA (idPregunta, enunciado, idCategoria) VALUES (100, '¿Cúales son los colores de los cinco anillos de los Juegos Olímpicos?', 3);
 
-INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUES ( '42,16 km', true, 100);
-INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUES ( '15 km', false, 100);
-INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUES ( '20,5 km', false, 100);
+INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUES ('Azul, rojo, amarillo, verde y negro', true, 100);
+INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUES ('Azul, dorado, lila, verde y negro', false, 100);
+INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUES ('Amarillo, dorado, lila, naranja, azul', false,  100);
 
 
 INSERT INTO PREGUNTA (idPregunta, enunciado, idCategoria) VALUES (101, '¿Cúantos kilómetros de distancia mide una maratón?', 3);
 
-INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUES ('Azul, rojo, amarillo, verde y negro', true, 101);
-INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUES ('Azul, dorado, lila, verde y negro', false, 101);
-INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUES ('Amarillo, dorado, lila, naranja, azul', false, 101);
+INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUES ('42,16 km', true,101);
+INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUES ('15 km', false, 101);
+INSERT INTO RESPUESTA (texto, correcta, idPregunta) VALUES ('20,5 km', false, 101);
 
 
 INSERT INTO PREGUNTA (idPregunta, enunciado, idCategoria) VALUES (102, '¿Cúantas veces Michael Jordan ganó campeonatos para los Chicago Bulls?', 3);
@@ -363,4 +363,20 @@ INSERT INTO Respuesta (texto, correcta, idPregunta) VALUES ('2001',true,605);
 INSERT INTO Respuesta (texto, correcta, idPregunta) VALUES ('2003',false,605);
 INSERT INTO Respuesta (texto, correcta, idPregunta) VALUES ('2005',false,605);
 
+/*	UPDATE respuesta SET idPregunta = 405 WHERE texto LIKE 'Andalucía%';
+	UPDATE respuesta SET idPregunta = 405 WHERE texto LIKE 'Asturias%';
+	UPDATE respuesta SET idPregunta = 405 WHERE texto LIKE 'Cataluña%';
+	
+	UPDATE respuesta SET texto = '42,16 km'
+	 WHERE texto LIKE 'Azul, rojo, amarillo, verde y negro' and idPregunta like 101;
 
+	UPDATE respuesta SET texto = '15 km'
+	 WHERE texto LIKE '15 km%' and idPregunta like 101;
+
+	UPDATE respuesta SET texto = '20,5 km'
+	 WHERE texto LIKE 'Amarillo, dorado, lila, naranja, azul%' and idPregunta like 101;
+	 
+	ALTER TABLE jugador MODIFY COLUMN alias VARCHAR(33) UNIQUE;
+	 
+	 
+select * from respuesta where idPregunta like 100   */
