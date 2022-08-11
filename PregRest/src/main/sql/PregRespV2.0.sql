@@ -138,9 +138,9 @@ INSERT INTO RESPUESTA(texto,correcta,idPregunta) VALUES('Central', true, 404);
 
 INSERT INTO PREGUNTA(idPregunta,enunciado,idCategoria) VALUES(405,'Los Picos de Europa están en...?', 2 );
 
-INSERT INTO RESPUESTA(texto,correcta,idPregunta) VALUES('Andalucía', false, 404);
-INSERT INTO RESPUESTA(texto,correcta,idPregunta) VALUES('Asturias', true, 404);
-INSERT INTO RESPUESTA(texto,correcta,idPregunta) VALUES('Cataluña', false, 404);
+INSERT INTO RESPUESTA(texto,correcta,idPregunta) VALUES('Andalucía', false, 405);
+INSERT INTO RESPUESTA(texto,correcta,idPregunta) VALUES('Asturias', true, 405);
+INSERT INTO RESPUESTA(texto,correcta,idPregunta) VALUES('Cataluña', false, 405);
 
 
 INSERT INTO PREGUNTA (idPregunta, enunciado, idCategoria) VALUES (700, '¿Quién saltó a la fama en 2008 con el lanzamiento del single I Kissed a Girl?', 4);
@@ -363,4 +363,17 @@ INSERT INTO Respuesta (texto, correcta, idPregunta) VALUES ('2001',true,605);
 INSERT INTO Respuesta (texto, correcta, idPregunta) VALUES ('2003',false,605);
 INSERT INTO Respuesta (texto, correcta, idPregunta) VALUES ('2005',false,605);
 
+/*	UPDATE respuesta SET idPregunta = 405 WHERE texto LIKE 'Andalucía%';
+	UPDATE respuesta SET idPregunta = 405 WHERE texto LIKE 'Asturias%';
+	UPDATE respuesta SET idPregunta = 405 WHERE texto LIKE 'Cataluña%';
+	
+	UPDATE respuesta SET texto = '42,16 km'
+	 WHERE texto LIKE 'Azul, rojo, amarillo, verde y negro' and idPregunta like 101;
 
+	UPDATE respuesta SET texto = '15 km'
+	 WHERE texto LIKE '15 km%' and idPregunta like 101;
+
+	UPDATE respuesta SET texto = '20,5 km'
+	 WHERE texto LIKE 'Amarillo, dorado, lila, naranja, azul%' and idPregunta like 101;
+	 
+select * from respuesta where idPregunta like 100   */
