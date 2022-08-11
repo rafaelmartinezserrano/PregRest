@@ -54,5 +54,11 @@
 				<a href="RankingJugadores">Ver puntuación</a>
 				</div>
 			</section>
+			<div>
+			<% String mensaje = (String)request.getAttribute("mensaje");%>
+			<%if (mensaje!=null){%>
+				<div><%=mensaje %></div>				
+			<%}%>
+			</div>
 	</body>
 </html>

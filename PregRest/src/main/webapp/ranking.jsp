@@ -15,7 +15,7 @@
 		<% if(listaJugadores != null) { %>
 		<ul>
 			<% for(Jugador j : listaJugadores) { %>
-				<li><%=j.getPuntuacionTotal()%></li>
+				<li><%=j.getNombre()%>: <%=j.getPuntuacionTotal()%></li>
 			<% } %>
 		</ul>
 		<% } %>
