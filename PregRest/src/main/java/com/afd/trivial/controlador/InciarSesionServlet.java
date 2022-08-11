@@ -29,11 +29,12 @@ public class InciarSesionServlet extends HttpServlet {
 		try {
 			Jugador j = fachada.iniciarSesion(nombre);
 			if(j!=null) {
+				System.out.println("INICIAR SESION: " + j);
 				request.getSession().setAttribute("jugador", j);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("Menu.jsp");
 				dispatcher.forward(request, response);
 			}else {
-				request.setAttribute("mensaje", "Nombre de jugador o jugadora ya existe");
+				request.setAttribute("mensaje", "El nombre de jugador o jugadora no existe");
 				request.getRequestDispatcher("index.jsp").forward(request, response);
 			}
 		}catch (Exception e) {

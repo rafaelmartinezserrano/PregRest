@@ -30,13 +30,13 @@
 </head>
 	<body>
 		<% Partida partida = (Partida)application.getAttribute("partida"); %>
-		<form action="">
+		<form action="RecogerRespuestas">
 			<div class="pregresp">
 			<% for (Pregunta p : partida.getListaPreguntas()) { %>
 				<div class="pregunta"><%=p.getEnunciado() %></div>
 				<div class="respuestas"> 
 				<% for (Respuesta r: p.getListaRespuesta()) { %> 
-					<input type="radio" name="resp<%=p.getIdPregunta()%>" value="<%= r.getIdRespuesta()%>"/> <%= r.getTexto() %>
+					<input required type="radio" name="resp<%=p.getIdPregunta()%>" value="<%= r.getIdRespuesta()%>"/> <%= r.getTexto() %>
 					<br/>
 				<% } %>
 			 	</div>
