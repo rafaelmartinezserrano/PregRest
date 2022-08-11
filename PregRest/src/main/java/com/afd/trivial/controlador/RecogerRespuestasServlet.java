@@ -30,7 +30,6 @@ public class RecogerRespuestasServlet extends HttpServlet {
 		Fachada fachada = FachadaImpl.getInstance();
 		Partida partida = (Partida)request.getSession().getServletContext().getAttribute("partida");
 		Jugador jugador = (Jugador)request.getSession().getAttribute("jugador");
-		System.out.println("RECOGER RESPUESTAS: " + jugador);
 		int numPreguntas= partida.getListaPreguntas().size();
 		ArrayList<Integer>listaRespuestas= new ArrayList<Integer>(numPreguntas);
 			for (int i = 0; i < numPreguntas; i++) {
@@ -40,8 +39,10 @@ public class RecogerRespuestasServlet extends HttpServlet {
 			}
 			jugador = fachada.corregirPartida(listaRespuestas, partida, jugador);
 			request.getSession().setAttribute("jugador", jugador);
-			RequestDispatcher dispatcher = request.getRequestDispatcher("partidaAcabada.jsp");
-			dispatcher.forward(request, response);
+			//Vamos a partidaAcabada.jsp a través de una request nueva
+			//NO se puede pasar información dentro de la request
+			//En el navegador del cliente aparece esta url
+			response.sendRedirect("partidaAcabada.jsp");
 		
 		
 		try {

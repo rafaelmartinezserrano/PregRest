@@ -51,7 +51,7 @@
 				<a href="BuscarPartidas">Buscar partida</a>
 				</div>
 				<div>
-				<a href="ranking.jsp">Ver puntuación</a>
+				<a href="RankingJugadores">Ver puntuación</a>
 				</div>
 			</section>
 	</body>

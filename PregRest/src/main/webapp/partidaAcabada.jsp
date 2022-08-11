@@ -11,7 +11,7 @@
 		<header>
 			<h1>
 			<%Jugador jugador = (Jugador)session.getAttribute("jugador"); %>
-			<%=jugador.getNombre()%>has acabado la partida
+			<%=jugador.getNombre()%> has acabado la partida
 			</h1>
 		</header>
 		<section>
