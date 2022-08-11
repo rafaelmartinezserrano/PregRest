@@ -378,4 +378,5 @@ INSERT INTO Respuesta (texto, correcta, idPregunta) VALUES ('2005',false,605);
 	 
 	ALTER TABLE jugador MODIFY COLUMN alias VARCHAR(33) UNIQUE;
 	 
+	 
 select * from respuesta where idPregunta like 100   */

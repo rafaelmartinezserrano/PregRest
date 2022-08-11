@@ -19,6 +19,7 @@ function mostrarResultado(){
 		}else{
 			spanNombreDisponible.innerHTML = "El Alias esta Disponible";
 			boton.disabled = false;
+			
 		}
 	}
 }

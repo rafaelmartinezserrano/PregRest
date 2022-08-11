@@ -20,6 +20,7 @@
 			<div><%=mensaje %></div>				
 		<%}%>
 		
+		
 		<div>ya tienes cuenta? puedes iniciar sesion: <a href="index.jsp">aquí</a></div>
 	</body>
 </html>
