@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
@@ -28,21 +29,22 @@ public class FachadaImpl extends Fachada {
 	public Jugador iniciarSesion(String alias) {
 		Session sesion = this.factoria.openSession();
 		Transaction transaccion = sesion.beginTransaction();
-		Jugador jugador= null;
+		Jugador jugador = null;
 		try {
 			TypedQuery<Jugador>consulta=sesion.createQuery("from Jugador where alias=:jugador", Jugador.class);
 			consulta.setParameter("jugador",alias);
 			jugador=consulta.getSingleResult();
  			transaccion.commit();
- 			
 		}catch (HibernateException ex) {
 			ex.printStackTrace();
 			transaccion.rollback();
-			sesion.close();
-			return null;
+		} catch (NoResultException ex) {
+			ex.printStackTrace();
+			transaccion.rollback();
 		}finally {
 			sesion.close();
 		}
+		System.out.println("FACHADA: " + jugador);
 		return jugador;
 		
 	}

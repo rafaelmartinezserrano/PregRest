@@ -34,7 +34,7 @@ public class InciarSesionServlet extends HttpServlet {
 				RequestDispatcher dispatcher = request.getRequestDispatcher("Menu.jsp");
 				dispatcher.forward(request, response);
 			}else {
-				request.setAttribute("mensaje", "Nombre de jugador o jugadora ya existe");
+				request.setAttribute("mensaje", "El nombre de jugador o jugadora no existe");
 				request.getRequestDispatcher("index.jsp").forward(request, response);
 			}
 		}catch (Exception e) {
