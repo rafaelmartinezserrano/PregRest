@@ -7,13 +7,6 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="estiloJuego.css">
-		<style type="text/css">
-		form { display:flex;
-		       justify-content:center;
-		       flex-direction: column;
-		       align-items: flex-start;}
-		
-		</style>
 		<title>Nueva partida</title>
 	</head>
 <body>
@@ -21,7 +14,7 @@
 	<header>
 		<img src="imagenes/logopr.png" alt="logo preguntas y respuestas">
 	</header>
-		<form action="NuevaPartida" method="get">
+		<form class="nueva" action="NuevaPartida" method="get">
 		
 		<%List<Categoria> listaCategoria =(List<Categoria>)request.getAttribute("listaCategorias"); %>
 		

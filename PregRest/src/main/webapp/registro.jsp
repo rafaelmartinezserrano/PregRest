@@ -9,7 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="estiloJuego.css">
 	</head>
 	<body>
-		<form action="Registrar" method="get">
+		<form class="registro" action="Registrar" method="get">
 			 <label for="nombreAlias">Alias</label><br/>
 		     <input id="nombreAlias" type="text" oninput="comprobarAlias();" name="alias" placeholder="Alias">
 		     <span id="nombreDisponible"></span>
