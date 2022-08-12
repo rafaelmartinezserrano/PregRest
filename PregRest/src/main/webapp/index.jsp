@@ -17,7 +17,7 @@
 				padding: 0;
 				border: 0;
 				}
-				body{
+				.fondoEspecial{
 				display: flex;
 				justify-content: center;
 				width: 100%;
@@ -66,7 +66,7 @@
 				    }
 			</style>
 		</head>
-		<body>
+		<body class="fondoEspecial">
 			<section class="legend">
 				<img alt="pregResp logo" src="imagenes/logopr.png">
 				<h2>Hola!!!</h2>
