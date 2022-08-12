@@ -11,7 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="estiloJuego.css">
 	
 </head>
-	<body>
+	<body class="fondoEspecial">
 		<% Partida partida = (Partida)application.getAttribute("partida"); %>
 		<form action="RecogerRespuestas">
 			<div class="pregresp">
