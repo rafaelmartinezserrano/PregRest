@@ -10,7 +10,7 @@
 				padding: 0;
 				border: 0;
 				}
-	body {
+	.fondoEspecial {
 				display: flex;
 				justify-content: center;
 				width: 100%;
@@ -31,7 +31,6 @@
 					color: black;
 					font-size: 20px;
 					text-align: center;
-					  
 					}
 		.input {
   					display: flex;
@@ -42,7 +41,7 @@
   					width: 90%;
   					margin: 15px auto;
   				}
-	   input{
+	   input {
 				    width: 50%;
 				    padding: 10px 5px 10px 40px;
 				    display: block;
@@ -72,8 +71,7 @@
 			padding-top: 50px;
 			text-align:center;
 			color:#3B3C9B;
- 			 text-shadow: 2px 2px;
-			}
+ 			}
 			
 	ul {
 			text-align:center;
@@ -83,7 +81,7 @@
 			padding-top: 50px;
 			text-align:center;
 			color:#3B3C9B;
- 			 text-shadow: 2px 2px;
+ 			 
 			}
     div{
 			font-size: 14px;
@@ -92,13 +90,11 @@
 	P {
 			text-align:center;
 			color: white;
-  			text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
-			}
+  			}
 
 	.pregresp {
+			text-align: left;
 			border: 1px solid #7DA5E0;
-			padding: 10px;
-			margin: 10px;
 			font-family: Rockwell;
 			font-size: 15px;
 			font-weight: bold;
@@ -111,7 +107,20 @@
 	.respuestas {
 				color: #000000;
 	}
-	form { 
+	.jugarPartida {
+				text-align: left;
+				font-family: Rockwell;
+				font-size: 15px;
+				font-weight: bold;
+	}
+	
+	.nueva { 
+			   display:flex;
+		       justify-content:center;
+		       flex-direction: column;
+		       align-items: flex-start;
+		       }
+	.registro {
 				display:flex;
 	}
 

@@ -6,36 +6,7 @@
 		<meta charset="utf-8">
 		<title>Opciones de juego</title>
 		<link rel="stylesheet" type="text/css" href="estiloJuego.css">
-		<style type="text/css">
-			body {
-			background-image: radial-gradient(circle at 
-			87.5% 12.5%, #9addfe 0, #69c7f6 25%, #0cafed 50%, #0098e5 75%, #0081dd 100%);
-			}
-			#quiz {
-			 display: block;
-			 margin-left: auto;
-			 margin-right: auto;
-			 height: 100px;
-			 width:170px;
-			 padding-top: 40px;
-			 z-index: -1;
-			}
-			h2 {
-			padding-top: 50px;
-			text-align:center;
-			color:#3B3C9B;
- 			 text-shadow: 2px 2px;
-			}
-			div{
-			font-size: 14px;
-			text-align:center;
-			}
-			P{
-			text-align:center;
-			color: white;
-  			text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
-			}
-		</style>
+		
 	</head>
 		<body>
 			<header>
