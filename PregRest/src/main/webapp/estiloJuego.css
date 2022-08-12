@@ -115,3 +115,10 @@
 				display:flex;
 	}
 
+	.correcta {
+		color: green;
+	}
+	
+	.incorrecta {
+		color: red;
+	}
