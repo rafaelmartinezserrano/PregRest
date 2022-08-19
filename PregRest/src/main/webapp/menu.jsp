@@ -20,7 +20,7 @@
 				<a href="RecuperarListaCategorias">Nueva partida</a>
 				</div>
 				<div>
-				<a href="BuscarPartidas">Buscar partida</a>
+				<a href="buscarPartida.jsp">Buscar partida</a>
 				</div>
 				<div>
 				<a href="RankingJugadores">Ver puntuación</a>

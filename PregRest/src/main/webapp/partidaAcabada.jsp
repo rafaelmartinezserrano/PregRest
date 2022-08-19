@@ -1,3 +1,4 @@
+<%@page import="java.util.HashMap"%>
 <%@page import="com.afd.trivial.modelo.Respuesta"%>
 <%@page import="com.afd.trivial.modelo.Pregunta"%>
 <%@page import="java.util.List"%>
@@ -30,8 +31,11 @@
 			</div>
 		</section>
 		<section>
-			<%Partida partida = (Partida)application.getAttribute("partida");%>
-			<%List<Integer> listaRespuestas = (List<Integer>)session.getAttribute("listaRespuestas"); %>
+			<% HashMap<Integer, Partida> listaPartidas = (HashMap<Integer, Partida>)application.getAttribute("partidas");%>
+			<% int idPartida = Integer.parseInt(request.getParameter("idPartida")); %>
+			<% Partida partida = listaPartidas.get(idPartida);%>
+			<% listaPartidas.remove(idPartida); %>
+			<% List<Integer> listaRespuestas = (List<Integer>)session.getAttribute("listaRespuestas"); %>
 			<% for (Pregunta p : partida.getListaPreguntas()) { %>
 				<div><%=p.getEnunciado() %></div>
 				<% for (Respuesta r : p.getListaRespuesta()) { %>
@@ -60,7 +64,7 @@
 			<% } %>
 		</section>
 		<footer>
-			<a href="Menu.jsp">Volver al menú principal</a>
+			<a href="menu.jsp">Volver al menú principal</a>
 		</footer>
 	</body>
 </html>

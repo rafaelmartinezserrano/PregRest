@@ -29,9 +29,8 @@ public class InciarSesionServlet extends HttpServlet {
 		try {
 			Jugador j = fachada.iniciarSesion(nombre);
 			if(j!=null) {
-				System.out.println("INICIAR SESION: " + j);
 				request.getSession().setAttribute("jugador", j);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("Menu.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");
 				dispatcher.forward(request, response);
 			}else {
 				request.setAttribute("mensaje", "El nombre de jugador o jugadora no existe");

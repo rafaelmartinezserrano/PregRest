@@ -30,11 +30,8 @@ public abstract class Fachada {
 	//se ha podido registrar o null en caso contrario
 	public abstract Jugador registrarJugador(String alias);
 	
-	//Método que buscará las partidas disponibles
-	public abstract List<Partida> buscarPartidas();
-	
 	//Método que creará una partida a partir de los datos recibidos
-	public abstract Partida crearPartida(String nombre, int maxJugadores, int numPreguntasPorCategoria, int[]categorias);
+	public abstract Partida crearPartida(String nombre, int maxJugadores, int numPreguntasPorCategoria, int[]categorias, Jugador jugador);
 
 	//Método que devolverá verdadero o falso si un alias está disponible para registrarse
 	public abstract boolean comprobarAlias(String alias);
@@ -45,12 +42,6 @@ public abstract class Fachada {
 	//Método que devuelve la lista de categorias
 	public abstract List<Categoria> obtenerCategoria();
 
-	public abstract Partida buscarPartidaPorId(int idPartida);
-
-
 	public abstract Jugador corregirPartida(ArrayList<Integer> listaRespuestas, Partida partida, Jugador jugador) ;
-		
-	
-		
 	
 }

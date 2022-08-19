@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
@@ -20,7 +21,7 @@ public class Pregunta {
 	@JoinColumn(name = "idCategoria")
 	private Categoria categoria;
 	
-	@OneToMany(mappedBy = "pregunta")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "pregunta")
 	private List<Respuesta> listaRespuesta;
 	
 	public Pregunta(int idPregunta, String enunciado, Categoria categoria, List<Respuesta> listaRespuesta) {
@@ -69,6 +70,15 @@ public class Pregunta {
 
 	public void setListaRespuesta(List<Respuesta> listaRespuesta) {
 		this.listaRespuesta = listaRespuesta;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Pregunta [idPregunta=").append(idPregunta).append(", enunciado=").append(enunciado)
+				.append(", categoria=").append(categoria).append(", listaRespuesta=").append(listaRespuesta)
+				.append("]");
+		return builder.toString();
 	}
 
 }

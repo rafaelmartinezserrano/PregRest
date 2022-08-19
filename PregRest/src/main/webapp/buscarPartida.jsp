@@ -1,4 +1,5 @@
 
+<%@page import="java.util.HashMap"%>
 <%@page import="com.afd.trivial.modelo.Partida"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -12,25 +13,24 @@
 	</head>
 	<body>
 		<h1>BUSCAR PARTIDA</h1>
-		<form action="jugarPartida" method="get">
+		<form action="JugarPartida" method="get">
 			<h2>Seleccionar partida</h2>
+			<% HashMap<Integer, Partida> listaPartidas = (HashMap<Integer, Partida>)request.getSession().getServletContext().getAttribute("partidas");%>
+			<%if (listaPartidas != null && !listaPartidas.isEmpty()) {  %>
+				<select name="partida" id="idpartida">
+					<option></option>
+					<% for (Partida partida : listaPartidas.values()) { %>
+						<option value = "<%=partida.getIdPartida()%>"><%= partida.getNombreSala()%></option>
+					<% } %>
+				</select>
+				<br/>
+				<input type="submit" value="JUGAR"/>
+			<% } else { %>
+				<div>
+					<h3>No se han encontrado partidas</h3>
+				</div>
+			<% } %>	
 			
-				<% List<Partida> listaPartidas = (List<Partida>)request.getAttribute("verPartidas"); %>
-					<%if (listaPartidas != null) {  %>
-					<select name="partida" id="idpartida">
-						<option></option>
-						<% for (int i=0; i< listaPartidas.size(); i++) { %>
-							<%Partida partida = listaPartidas.get(i); %>
-							<option value = "<%=partida.getIdPartida()%>"><%= partida.getNombreSala()%></option>
-						<% } %>
-					</select>
-					<% } else { %>
-						<div>
-							<h3>No se han encontrado partidas</h3>
-						</div>
-					<% } %>	
-			<br/>
-			<input type="submit" value="JUGAR"/>
 		</form>
 	</body>
 </html>

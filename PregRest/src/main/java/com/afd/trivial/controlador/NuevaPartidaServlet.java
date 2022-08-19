@@ -7,8 +7,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import com.afd.trivial.modelo.Fachada;
+import com.afd.trivial.modelo.Jugador;
 import com.afd.trivial.modelo.Partida;
 
 /**
@@ -32,20 +36,24 @@ public class NuevaPartidaServlet extends HttpServlet {
 		for(int i = 0 ; i< categorias.length ; i ++) {
 			idCategorias[i] = Integer.parseInt(categorias[i]);
 		}
+		Jugador jugador = (Jugador)request.getSession().getAttribute("jugador");
 		Fachada fachada = Fachada.getInstance();
-		Partida nuevaPartida = fachada.crearPartida(nombrePartida, numJugadores, pregPorCategoria, idCategorias);
+		Partida nuevaPartida = fachada.crearPartida(nombrePartida, numJugadores, pregPorCategoria, idCategorias, jugador);
 
 		if(nuevaPartida == null) {
 			request.setAttribute("mensaje", "Error al crear partida. Contacte con el servicio tecnico.");
-			RequestDispatcher dispatcher = request.getRequestDispatcher("Menu.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("menu.jsp");
 			dispatcher.forward(request, response);
 		}else {
-			request.setAttribute("mensaje", "Partida creada correctamente, puedes buscar tu partida aqui: <a href=\"BuscarPartidas\">aquí</a>");
-			RequestDispatcher dispatcher = request.getRequestDispatcher("Menu.jsp");
-			dispatcher.forward(request, response);
+			HashMap<Integer, Partida> listaPartidas = (HashMap<Integer, Partida>)request.getSession().getServletContext().getAttribute("partidas");
+			if (listaPartidas == null) {
+				listaPartidas = new HashMap<Integer,Partida>();
+			}
+			listaPartidas.put(nuevaPartida.getIdPartida(),nuevaPartida);
+			request.getSession().getServletContext().setAttribute("partidas", listaPartidas);
+			request.getSession().setAttribute("idPartida", nuevaPartida.getIdPartida());
+			response.sendRedirect("esperar.jsp");
 		}
-		
-		
 		
 	}
 

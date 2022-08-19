@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import javax.persistence.metamodel.SetAttribute;
@@ -28,9 +29,10 @@ public class RecogerRespuestasServlet extends HttpServlet {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Fachada fachada = FachadaImpl.getInstance();
-		Partida partida = (Partida)request.getSession().getServletContext().getAttribute("partida");
+		int idPartida = Integer.parseInt(request.getParameter("idPartida"));
+		HashMap<Integer, Partida> listaPartidas = (HashMap<Integer, Partida>)request.getSession().getServletContext().getAttribute("partidas");
+		Partida partida = listaPartidas.get(idPartida);
 		Jugador jugador = (Jugador)request.getSession().getAttribute("jugador");
-		System.out.println("RECOGER RESPUESTAS: " + jugador);
 		int numPreguntas= partida.getListaPreguntas().size();
 		ArrayList<Integer>listaRespuestas= new ArrayList<Integer>(numPreguntas);
 			for (int i = 0; i < numPreguntas; i++) {
@@ -44,7 +46,7 @@ public class RecogerRespuestasServlet extends HttpServlet {
 			//El método sendRedirect crea un request nueva. Eso implica:
 			//	No se puede pasar información a la jsp a través de la request
 			//	La URL va a aparecer en el navegador del usuario
-			response.sendRedirect("partidaAcabada.jsp");
+			response.sendRedirect("partidaAcabada.jsp?idPartida=" + idPartida);
 			
 		
 	}

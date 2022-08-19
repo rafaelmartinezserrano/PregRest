@@ -15,26 +15,11 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Transient;
 
-@Entity
 public class Partida {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idPartida;
-	@Column(name = "nombre")
 	private String nombreSala;
-	
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name = "preguntasPartida",
-	joinColumns = { @JoinColumn(name = "idPartida")},
-	inverseJoinColumns = {@JoinColumn(name ="idPregunta")}
-	)
 	private List<Pregunta> listaPreguntas;
-	@ManyToMany
-	@JoinTable(name = "jugadoresPartida",
-	joinColumns = { @JoinColumn(name = "idPartida")},
-	inverseJoinColumns = {@JoinColumn(name ="idJugador")}
-	)
 	private List<Jugador> listaJugadores;
 	private int maxJugadores;
 	private boolean finalizada;
@@ -53,13 +38,22 @@ public class Partida {
 		this.idPartida = idPartida;
 		this.nombreSala = nombreSala;
 		this.listaPreguntas = new ArrayList<Pregunta>();
-		this.listaJugadores = new ArrayList<Jugador>();
+		this.listaJugadores = new ArrayList<Jugador>(maxJugadores);
 		this.maxJugadores = maxJugadores;
 		this.finalizada = finalizada;
 	}
 
 	public Partida(){}
 	
+	public Partida(int idPartida, String nombreSala, List<Pregunta> preguntas, int maxJugadores, boolean finalizada) {
+		this.idPartida = idPartida;
+		this.nombreSala = nombreSala;
+		this.listaPreguntas = preguntas;
+		this.listaJugadores = new ArrayList<Jugador>(maxJugadores);
+		this.maxJugadores = maxJugadores;
+		this.finalizada = finalizada;
+	}
+
 	public int getIdPartida() {
 		return idPartida;
 	}
@@ -108,4 +102,32 @@ public class Partida {
 		this.finalizada = finalizada;
 	}
 	
+	public boolean insertarJugador(Jugador jugador) {
+		boolean insertado = true;
+		if (this.listaJugadores.size() < this.maxJugadores) {
+			this.listaJugadores.add(jugador);
+		} else {
+			insertado = false;
+		}
+		return insertado;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Partida [idPartida=").append(idPartida).append(", nombreSala=").append(nombreSala)
+				.append(", listaPreguntas=").append(listaPreguntas).append(", listaJugadores=").append(listaJugadores)
+				.append(", maxJugadores=").append(maxJugadores).append(", finalizada=").append(finalizada).append("]");
+		return builder.toString();
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		boolean resultado = false;
+		if (obj != null && obj instanceof Partida) {
+			Partida otra = (Partida)obj;
+			resultado = this.idPartida == otra.idPartida;
+		}
+		return resultado;
+	}
 }

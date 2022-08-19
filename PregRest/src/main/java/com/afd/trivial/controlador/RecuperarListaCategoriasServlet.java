@@ -29,7 +29,7 @@ public class RecuperarListaCategoriasServlet extends HttpServlet {
 		Fachada fachada = FachadaImpl.getInstance();
 		List<Categoria> listaCategorias = fachada.obtenerCategoria();
 		request.setAttribute("listaCategorias", listaCategorias);
-		request.getRequestDispatcher("NuevaPartida.jsp").forward(request, response);
+		request.getRequestDispatcher("nuevaPartida.jsp").forward(request, response);
 	}
 
 	/**

@@ -1,3 +1,4 @@
+<%@page import="java.util.HashMap"%>
 <%@page import="com.afd.trivial.modelo.Partida"%>
 <%@page import="com.afd.trivial.modelo.Respuesta"%>
 <%@page import="com.afd.trivial.modelo.Pregunta"%>
@@ -12,7 +13,9 @@
 	
 </head>
 	<body class="jugarPartida">
-		<% Partida partida = (Partida)application.getAttribute("partida"); %>
+		<% HashMap<Integer, Partida> listaPartidas = (HashMap<Integer, Partida>)application.getAttribute("partidas"); %>
+		<% int idPartida = Integer.parseInt(request.getParameter("idPartida")); %>
+		<% Partida partida = listaPartidas.get(idPartida); %>
 		<form action="RecogerRespuestas">
 			<div class="pregresp">
 			<% for (Pregunta p : partida.getListaPreguntas()) { %>
@@ -24,6 +27,7 @@
 				<% } %>
 			 	</div>
 			 <%} %>
+			 <input type="hidden" name="idPartida" value="<%=idPartida%>"/>
 			<input type="submit" value="Enviar respuesta"> 
 			</div>
 		</form>
