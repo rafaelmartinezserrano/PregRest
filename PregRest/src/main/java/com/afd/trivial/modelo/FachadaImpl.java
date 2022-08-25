@@ -71,6 +71,7 @@ public class FachadaImpl extends Fachada {
 		Session sesion = this.factoria.openSession();
 		Transaction transaccion = sesion.beginTransaction();
 		try {
+			jugador.setPuntuacion(0);
 			for (int i = 0; i < listaRespuestas.size(); i++) {
 				Query consulta = sesion.createQuery("Select correcta from Respuesta where idRespuesta = :id");
 				consulta.setParameter("id", listaRespuestas.get(i));
@@ -107,6 +108,7 @@ public class FachadaImpl extends Fachada {
 			}
 			int idPartida = (int) Math.round(Math.random()*Integer.MAX_VALUE);
 			Partida partida = new Partida(idPartida, nombre, preguntas, maxJugadores, false);
+			jugador.setPuntuacion(-1);
 			partida.insertarJugador(jugador);
 			transaccion.commit();
 			return partida;

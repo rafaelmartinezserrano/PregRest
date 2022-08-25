@@ -13,58 +13,68 @@
 	<title>Partida Acabada</title>
 	<link rel="stylesheet" type="text/css" href="estiloJuego.css">
 	</head>
-	<body>
+	<body class="fondoEspecial">
 		<header>
-			<h1>
-			<%Jugador jugador = (Jugador)session.getAttribute("jugador"); %>
-			<%=jugador.getNombre()%> has acabado la partida
-			</h1>
+			<img src="imagenes/logopr.png" alt="logo preguntas y respuestas">
 		</header>
-		<section>
+		<section class="legend">
+			<h2>
+				<%Jugador jugador = (Jugador)session.getAttribute("jugador"); %>
+				<%=jugador.getNombre()%> has acabado la partida
+			</h2>
 			<div>
-			Tu puntuación en esta partida ha sido: 
-			<%=jugador.getPuntuacion() %>
-			</div>
-			<div>
-			Tu puntuación total hasta ahora es: 
-			<%=jugador.getPuntuacionTotal() %>
+				Tu puntuación total hasta ahora es: 
+				<%=jugador.getPuntuacionTotal() %>
 			</div>
 		</section>
-		<section>
-			<% HashMap<Integer, Partida> listaPartidas = (HashMap<Integer, Partida>)application.getAttribute("partidas");%>
-			<% int idPartida = Integer.parseInt(request.getParameter("idPartida")); %>
-			<% Partida partida = listaPartidas.get(idPartida);%>
-			<% listaPartidas.remove(idPartida); %>
+		<% HashMap<Integer, Partida> listaPartidas = (HashMap<Integer, Partida>)application.getAttribute("partidas");%>
+		<% int idPartida = Integer.parseInt(request.getParameter("idPartida")); %>
+		<% Partida partida = listaPartidas.get(idPartida);%>
+		<section class="legend">
+			<h2>Puntuación de la partida:</h2>
+			<ol>
+			<% for (Jugador j : partida.getListaJugadores()) { %>
+				<li><%=j.getNombre()%>: <%=j.getPuntuacion()%></li>
+			<% } %>
+			</ol>
+		</section>
+		<section class="legend">
+			<h2>
+				Estas son las preguntas que has contestado:
+			</h2>
 			<% List<Integer> listaRespuestas = (List<Integer>)session.getAttribute("listaRespuestas"); %>
+			<div class="pregresp">
 			<% for (Pregunta p : partida.getListaPreguntas()) { %>
-				<div><%=p.getEnunciado() %></div>
+				<div class="pregunta"><%=p.getEnunciado() %></div>
+				<div class="respuestas">
 				<% for (Respuesta r : p.getListaRespuesta()) { %>
 					<% if (r.isCorrecta()) { %>
 						<% if (listaRespuestas.contains(r.getIdRespuesta())) { %>
 							<div class="correcta">
-								<input type="radio" checked disabled/><%=r.getTexto()%>&#10004;
+								<input type="radio" checked disabled/> <%=r.getTexto()%> &#10004;
 							</div>
 						<% } else { %>
 							<div class="correcta">
-								<input type="radio" disabled/><%=r.getTexto()%>&#10004;
-							</div>
+								<input type="radio" disabled/> <%=r.getTexto()%> &#10004;
+							</span>
 						<% } %>
 					<% } else { %>
 						<% if (listaRespuestas.contains(r.getIdRespuesta())) { %>
 							<div class="incorrecta">
-								<input type="radio" checked disabled/><%=r.getTexto()%>&#10006;
-							</div>
+								<input type="radio" checked disabled/> <%=r.getTexto()%> &#10006;
+							</span>
 						<% } else { %>
 							<div class="incorrecta">
-								<input type="radio" disabled/><%=r.getTexto()%>&#10006;
+								<input type="radio" disabled/> <%=r.getTexto()%> &#10006;
 							</div>
 						<% } %>
 					<% } %>
 				<% } %>
+				</div>
 			<% } %>
+			<footer>
+				<a href="menu.jsp">Volver al menú principal</a>
+			</footer>
 		</section>
-		<footer>
-			<a href="menu.jsp">Volver al menú principal</a>
-		</footer>
 	</body>
 </html>

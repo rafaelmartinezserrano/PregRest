@@ -1,7 +1,9 @@
 package com.afd.trivial.modelo;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -20,11 +22,11 @@ public class Partida {
 	private int idPartida;
 	private String nombreSala;
 	private List<Pregunta> listaPreguntas;
-	private List<Jugador> listaJugadores;
+	private Set<Jugador> listaJugadores;
 	private int maxJugadores;
 	private boolean finalizada;
 	
-	public Partida(int idPartida, String nombreSala, List<Pregunta> listaPreguntas, List<Jugador> listaJugadores,
+	public Partida(int idPartida, String nombreSala, List<Pregunta> listaPreguntas, Set<Jugador> listaJugadores,
 			int maxJugadores, boolean finalizada) {
 		this.idPartida = idPartida;
 		this.nombreSala = nombreSala;
@@ -38,7 +40,7 @@ public class Partida {
 		this.idPartida = idPartida;
 		this.nombreSala = nombreSala;
 		this.listaPreguntas = new ArrayList<Pregunta>();
-		this.listaJugadores = new ArrayList<Jugador>(maxJugadores);
+		this.listaJugadores = new HashSet<Jugador>(maxJugadores);
 		this.maxJugadores = maxJugadores;
 		this.finalizada = finalizada;
 	}
@@ -49,7 +51,7 @@ public class Partida {
 		this.idPartida = idPartida;
 		this.nombreSala = nombreSala;
 		this.listaPreguntas = preguntas;
-		this.listaJugadores = new ArrayList<Jugador>(maxJugadores);
+		this.listaJugadores = new HashSet<Jugador>(maxJugadores);
 		this.maxJugadores = maxJugadores;
 		this.finalizada = finalizada;
 	}
@@ -78,11 +80,11 @@ public class Partida {
 		this.listaPreguntas = listaPreguntas;
 	}
 
-	public List<Jugador> getListaJugadores() {
+	public Set<Jugador> getListaJugadores() {
 		return listaJugadores;
 	}
 
-	public void setListaJugadores(List<Jugador> listaJugadores) {
+	public void setListaJugadores(Set<Jugador> listaJugadores) {
 		this.listaJugadores = listaJugadores;
 	}
 

@@ -8,19 +8,22 @@
 		<script src="registro.js"></script>
 		<link rel="stylesheet" type="text/css" href="estiloJuego.css">
 	</head>
-	<body>
-		<form class="registro" action="Registrar" method="get">
-			 <label for="nombreAlias">Alias</label><br/>
-		     <input id="nombreAlias" type="text" oninput="comprobarAlias();" name="alias" placeholder="Alias">
-		     <span id="nombreDisponible"></span>
-			 <input type="submit" id="anularBoton" value="Registrar" />
-		</form>
-		<% String mensaje = (String)request.getAttribute("mensaje");%>
-		<%if (mensaje!=null){%>	
-			<div><%=mensaje %></div>				
-		<%}%>
-		
-		
-		<div>ya tienes cuenta? puedes iniciar sesion: <a href="index.jsp">aquí</a></div>
+	<body class="fondoEspecial">
+		<header>
+			<img src="imagenes/logopr.png" alt="logo preguntas y respuestas">
+		</header>
+		<section class="legend">
+			<form class="input" action="Registrar" method="get">
+				 <label for="nombreAlias">Alias:</label>
+			     <input id="nombreAlias" type="text" oninput="comprobarAlias();" name="alias" placeholder="Alias">
+			     <span id="nombreDisponible"></span>
+				 <input type="submit" id="anularBoton" value="Registrar" />
+			</form>
+			<% String mensaje = (String)request.getAttribute("mensaje");%>
+			<%if (mensaje!=null){%>	
+				<div><%=mensaje %></div>				
+			<%}%>
+			<div>Ya tienes cuenta? puedes iniciar sesion: <a href="index.jsp">aquí</a></div>
+		</section>
 	</body>
 </html>

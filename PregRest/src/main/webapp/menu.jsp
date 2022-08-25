@@ -6,24 +6,25 @@
 		<meta charset="utf-8">
 		<title>Opciones de juego</title>
 		<link rel="stylesheet" type="text/css" href="estiloJuego.css">
-		
 	</head>
-		<body>
+	<body class="fondoEspecial">
+		<header>
+			<img src="imagenes/logopr.png" alt="logo preguntas y respuestas">
+		</header>
+		<section class="legend">
 			<header>
 				<h2>¿QUÉ QUIERES HACER A CONTINUACIÓN?</h2>
-				<img id="quiz" src="https://play-lh.googleusercontent.com/bmGXUIx8ZiRgPSJI5eMOaUEafXVXiFiUJVx1siq1vVm1u-bbn4brIaYRehelsfy594c=w240-h480-rw"> 
-				<p>OPCIONES DE JUEGO:</p>
+				<img id="quiz" alt="logo quiz" src="imagenes/quiz.webp"> 
 			</header>
-			
-			<section>
+			<section id="menu">
 				<div>
-				<a href="RecuperarListaCategorias">Nueva partida</a>
+					<a href="RecuperarListaCategorias">Nueva partida</a>
 				</div>
 				<div>
-				<a href="buscarPartida.jsp">Buscar partida</a>
+					<a href="buscarPartida.jsp">Buscar partida</a>
 				</div>
 				<div>
-				<a href="RankingJugadores">Ver puntuación</a>
+					<a href="RankingJugadores">Ver puntuación</a>
 				</div>
 			</section>
 			<div>
@@ -32,5 +33,6 @@
 				<div><%=mensaje %></div>				
 			<%}%>
 			</div>
+		</section>
 	</body>
 </html>

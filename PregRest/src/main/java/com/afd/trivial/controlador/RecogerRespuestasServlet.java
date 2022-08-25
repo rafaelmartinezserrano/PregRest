@@ -41,14 +41,27 @@ public class RecogerRespuestasServlet extends HttpServlet {
 				listaRespuestas.add(respuesta);
 			}
 			jugador = fachada.corregirPartida(listaRespuestas, partida, jugador);
+			//Cuando un jugador acaba la partida, se actualiza su puntuación en la partida
+			partida.getListaJugadores().add(jugador);	
 			request.getSession().setAttribute("jugador", jugador);
 			request.getSession().setAttribute("listaRespuestas", listaRespuestas);
+			//Se espera hasta que todos los jugadores han acabado
+			boolean verResultado = false;
+			while (!verResultado) {
+				int numAcabados = 0;
+				for (Jugador j : partida.getListaJugadores()) {
+					if (j.getPuntuacion() != -1) {
+						numAcabados++;
+					}
+				}
+				verResultado = numAcabados == partida.getMaxJugadores();
+			}
+			partida.setFinalizada(true);
+			request.getSession().getServletContext().setAttribute("partidas", listaPartidas);
 			//El método sendRedirect crea un request nueva. Eso implica:
-			//	No se puede pasar información a la jsp a través de la request
-			//	La URL va a aparecer en el navegador del usuario
-			response.sendRedirect("partidaAcabada.jsp?idPartida=" + idPartida);
-			
-		
+			//No se puede pasar información a la jsp a través de la request
+			//La URL va a aparecer en el navegador del usuario
+			response.sendRedirect("partidaAcabada.jsp?idPartida=" + idPartida);	
 	}
 
 	/**

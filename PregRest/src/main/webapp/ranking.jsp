@@ -10,15 +10,38 @@
 		<title>Ranking</title>
 		<link rel="stylesheet" type="text/css" href="estiloJuego.css">
 	</head>
-	<body>
-		<h1>Ranking de Jugadores </h1>
-		<% List<Jugador> listaJugadores = (List<Jugador>)request.getAttribute("listaJugadores"); %>
-		<% if(listaJugadores != null) { %>
-		<ul>
-			<% for(Jugador j : listaJugadores) { %>
-				<li><%=j.getNombre()%>: <%=j.getPuntuacionTotal()%></li>
-			<% } %>
-		</ul>
-		<% } %>
+	<body class="fondoEspecial">
+		<header>
+			<img src="imagenes/logopr.png" alt="logo preguntas y respuestas">
+		</header>
+		<section class="legend">
+			<header>
+				<h2>Ranking de Jugadores</h2>
+			</header>
+			<section id="contenido">
+				<div class="imagenTrofeo">
+					<img src="imagenes/trofeo.webp" alt="trofeo"/>
+				</div>
+				<div id="ranking">
+					<% List<Jugador> listaJugadores = (List<Jugador>)request.getAttribute("listaJugadores"); %>
+					<% if(listaJugadores != null) { %>
+					<table>
+						<tr>
+							<th>Jugador</th>
+							<th>Puntuación total</th>
+						</tr>
+						<% for(Jugador j : listaJugadores) { %>
+							<tr>
+								<td><%=j.getNombre()%></td>
+								<td><%=j.getPuntuacionTotal()%></td>
+						<% } %>
+					</table>
+					<% } %>
+				</div>
+				<div class="imagenTrofeo">
+					<img src="imagenes/trofeo.webp" alt="trofeo"/>
+				</div>
+			</section>
+		</section>
 	</body>
 </html>

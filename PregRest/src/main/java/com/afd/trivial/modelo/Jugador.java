@@ -62,4 +62,19 @@ public class Jugador {
 		this.puntuacionTotal = puntuacionTotal;
 	}
 	
+	@Override
+	public int hashCode() {
+		return Integer.hashCode(this.idJugador);
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		boolean resultado = false;
+		if (obj != null && obj instanceof Jugador) {
+			Jugador otro = (Jugador)obj;
+			resultado = this.idJugador == otro.idJugador;
+		}
+		return resultado;
+	}
+	
 }

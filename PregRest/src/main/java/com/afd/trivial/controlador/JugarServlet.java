@@ -29,6 +29,7 @@ public class JugarServlet extends HttpServlet {
 		HashMap<Integer, Partida> listaPartidas = (HashMap<Integer, Partida>)request.getSession().getServletContext().getAttribute("partidas");
 		Partida partida = listaPartidas.get(idPartida);
 		Jugador jugador = (Jugador)request.getSession().getAttribute("jugador");
+		jugador.setPuntuacion(-1);
 		boolean insertado = partida.insertarJugador(jugador);
 		if (insertado) {
 			request.getSession().getServletContext().setAttribute("partidas", listaPartidas);

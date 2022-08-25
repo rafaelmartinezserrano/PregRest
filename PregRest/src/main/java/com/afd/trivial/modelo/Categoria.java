@@ -33,4 +33,12 @@ public class Categoria {
 		this.nombre = nombre;
 	}
 	
+	public boolean equals(Object obj) {
+		boolean resultado = false;
+		if (obj != null && obj instanceof Categoria) {
+			Categoria otra = (Categoria)obj;
+			resultado = this.idCategoria == otra.idCategoria;
+		}
+		return resultado;
+	}
 }
